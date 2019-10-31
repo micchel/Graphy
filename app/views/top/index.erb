@@ -1,0 +1,86 @@
+<div class="cover">
+</div>
+<div>
+  <div class="carousel slide" id="slide">
+    <div class="carousel-inner">
+      <div class="carousel-item active overflow-auto">
+        <%= image_pack_tag 'images/family-top.jpg', class:"top-bg" %>
+        <div class="carousel-caption text-center">
+          <h1 class="display-1 mb-4 modak">Graphy</h1>
+          <div class="mb-4">
+            <h3 class="d-inline-block">Nice matching for </h3>
+            <h3 class="d-inline-block">Photo Life</h3>
+          </div>
+          <div class="w-50 mx-auto vartical">
+            <button type="button" class="btn btn-primary btn-lg my-2 mx-1" data-toggle="modal" data-target="#newRegistration">新規登録</button>
+            <p class="display-5 d-inline-block">or</p>
+            <a href="#" alt="ログイン">
+              <button type="button" class="btn btn-primary btn-lg my-2 mx-1">ログイン</button>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item overflow-auto">
+        <%= image_pack_tag 'images/photographer-top.jpg', class:"top-bg" %>
+        <div class="carousel-caption text-center">
+          <h1 class="display-1 mb-4 modak">Graphy</h1>
+          <div class="mb-4">
+            <h3 class="d-inline-block">Nice matching for </h3>
+            <h3 class="d-inline-block">Photo Life</h3>
+          </div>
+          <div class="w-50 mx-auto vartical">
+            <button type="button" class="btn btn-primary btn-lg my-2 mx-1" data-toggle="modal" data-target="#newRegistration">新規登録</button>
+            <p class="display-5 d-inline-block">or</p>
+            <a href="#" alt="ログイン">
+              <button type="button" class="btn btn-primary btn-lg my-2 mx-1">ログイン</button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div> <a class="carousel-control-prev" href="#slide" data-slide="prev"><span class="carousel-control-prev-icon"></span> <span class="sr-only">Previous</span></a> <a class="carousel-control-next" href="#slide" data-slide="next"><span class="carousel-control-next-icon"></span> <span class="sr-only">Next</span></a>
+  </div>
+</div>
+
+<div class="modal fade" id="newRegistration" tabindex="-1" role="dialog" aria-labelledby="newRegistrationLabel" aria-hidden="true">
+  <div class="modal-dialog mx-auto" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="newRegistrationLabel">どちらで登録されますか？</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-lg-6">
+              <h3 class="text-center font-weight-bold">写真を依頼したい</h3>
+              <%= link_to "/", class: "d-block text-decoration-none" do %>
+                <div class="btn-main text-center text-light select rounded mb-4">
+                  <div class="w-75 h-50 position-relative" style="top:30%; left:13%;">
+                    <h2 class="mb-2 font-weight-bold">ユーザー</h2>
+                    <h4 class="mt-2 font-weight-bold">として登録</h4>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+            <div class="col-lg-6">
+              <h3 class="text-center font-weight-bold">写真を撮影したい</h3>
+              <%= link_to "/", class: "d-block text-decoration-none" do %>
+                <div class="btn-sub text-center text-light select rounded">
+                  <div class="w-75 h-50 position-relative" style="top:30%; left:12%;">
+                    <h2 class="mb-2 font-weight-bold">フォトグラファー</h2>
+                    <h4 class="mt-2 font-weight-bold">として登録</h4>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
+      </div>
+    </div>
+  </div>
+</div>
