@@ -1,0 +1,127 @@
+$main-color: #ffcc00;
+$sub-color: #00ccbb;
+.modak {
+  font-family: 'Modak', cursive;
+}
+.cover {
+  background: -moz-linear-gradient(top,#FFF,$main-color 30%,#F89174); 
+  background: -webkit-linear-gradient(top,#FFF,$main-color 30%,#F89174); 
+  background: linear-gradient(to bottom,#FFF,$main-color 30%,#F89174); 
+  opacity: 0.5;
+  z-index: 1;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+.top-bg {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+}
+.select {
+  height: 40vh;
+}
+.select:hover {
+  opacity: 0.8;
+}
+.btn-main {
+  background: #ff9400;
+  border-color: #ff7200;
+}
+.btn-sub {
+  background: $sub-color;
+  border-color: #00b3a4;
+}
+.carousel-caption {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.carousel-caption h1 {
+  font-size: 700%;
+}
+.carousel-caption h3 {
+  font-size: 200%;
+  font-weight: 500;
+  padding-bottom: 1rem;
+}
+.modal-dialog{
+  min-width:75vw;
+  max-width: 80vw;
+  width: 150vw;
+}
+/*---Media Queries --*/
+@media (max-width: 992px) {
+  
+}
+@media (max-width: 768px) {
+  .carousel-caption {
+    top: 45%;
+  }
+  .carousel-caption h1 {
+    font-size: 600%;
+  }
+  .carousel-caption h3 {
+    font-size: 230%;
+    font-weight: 400;
+    padding-bottom: .2rem;
+  }
+  .carousel-caption p {
+    font-size: 150%;
+  }
+  .carousel-caption .btn {
+    font-size: 180%;
+    padding: 1rem 1.8rem;
+  }
+  .vartical {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+  .select {
+    height: 20vh
+  }
+  .modal-body h2,h3,h4 {
+    font-size: 130%;
+  }
+}
+@media (max-width: 576px) {
+  .carousel-caption {
+    top: 45%;
+  }
+  .carousel-caption h1 {
+    font-size: 400%;
+  }
+  .carousel-caption h3 {
+    font-size: 150%;
+  }
+  .carousel-caption p {
+    font-size: 150%;
+  }
+  .carousel-caption .btn {
+    font-size: 120%;
+    padding: 8px 10px;
+  }
+  .carousel-indicators {
+    display: none;
+  }
+  .vartical {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+  .modal-title {
+    font-size: 90%;
+  }
+  .select {
+    height: 20vh
+  }
+  .modal-body h2,h3,h4 {
+    font-size: 100%;
+  }
+}
