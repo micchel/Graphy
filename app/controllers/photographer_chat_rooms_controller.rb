@@ -1,0 +1,2 @@
+class PhotographerChatRoomsController < ApplicationController
+end

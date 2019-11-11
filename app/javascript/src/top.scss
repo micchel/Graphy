@@ -1,0 +1,113 @@
+.cover {
+  background: -moz-linear-gradient(top,#FFF,$main-color 30%,#F89174); 
+  background: -webkit-linear-gradient(top,#FFF,$main-color 30%,#F89174); 
+  background: linear-gradient(to bottom,#FFF,$main-color 30%,#F89174); 
+  opacity: 0.5;
+  z-index: 1;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+.top-page {
+  .top-bg {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+  }
+  .carousel-caption {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    h1 {
+      font-size: 700%;
+    }
+    h3 {
+      font-size: 200%;
+      font-weight: 500;
+      padding-bottom: 1rem;
+    }
+  }   
+}
+
+.top-modal {
+  .modal-dialog {
+    min-width:75vw;
+    max-width: 80vw;
+    width: 150vw;
+    .modal-content {
+      .select {
+        height: 20vh
+      }
+      .modal-body h2,h3,h5 {
+        font-size: 130%;
+      }
+    }
+  }
+}
+
+/*---Media Queries --*/
+@media (max-width: 992px) {
+  
+}
+@media (max-width: 768px) {
+  .top-page {
+    .carousel-caption {
+      top: 45%;
+      h1 {
+        font-size: 600%;
+      }
+      h3 {
+        font-size: 230%;
+        font-weight: 400;
+        padding-bottom: .2rem;
+      }
+      p {
+        font-size: 150%;
+      }
+      .btn {
+        font-size: 180%;
+        padding: 1rem 1.8rem;
+      }
+      .vartical {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+}
+@media (max-width: 576px) {
+  .top-page {
+    .carousel-caption {
+      top: 45%;
+      h1 {
+        font-size: 400%;
+      }
+      h3 {
+        font-size: 150%;
+      }
+      p {
+        font-size: 150%;
+      }
+      .btn {
+        font-size: 120%;
+        padding: 8px 10px;
+      }
+      .vartical {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+  .top-modal {
+    .modal-title {
+      font-size: 90%;
+    }
+  }
+}

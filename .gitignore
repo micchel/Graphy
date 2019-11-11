@@ -30,3 +30,11 @@
 /node_modules
 yarn-debug.log*
 .yarn-integrity
+
+database.yml
+public/uploads/*
+.DS_Store
+
+app/javascript/images/children-1.jpg
+app/javascript/images/man-1.jpg
+app/javascript/images/photographer-1.jpg

@@ -1,0 +1,27 @@
+.navbar-sidebar {
+  height: 100vh;
+  z-index: 1050;
+}
+
+/*---Media Queries --*/
+@media (max-width: 992px) {
+  .navbar-sidebar {
+    height: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar-sidebar {
+    height: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .nav-link h4 {
+    font-size: 100%;
+  }
+
+  .navbar-sidebar {
+    height: 100%;
+  }
+}
