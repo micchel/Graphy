@@ -30,3 +30,7 @@
 /node_modules
 yarn-debug.log*
 .yarn-integrity
+
+database.yml
+public/uploads/*
+.DS_Store
