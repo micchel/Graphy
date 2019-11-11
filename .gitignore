@@ -34,3 +34,7 @@ yarn-debug.log*
 database.yml
 public/uploads/*
 .DS_Store
+
+/javascript/images/children-1.jpg
+/javascript/images/man-1.jpg
+/javascript/images/photographer-1.jpg
