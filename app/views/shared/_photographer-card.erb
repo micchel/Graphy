@@ -1,0 +1,31 @@
+<div class="col-md-6 col-lg-4 my-1">
+    <%= link_to photographer_path(1), class:"d-block photographer-link" do %>
+        <div class="card">
+            <div class="px-0 overflow-hidden rounded-top" style="height:100px;">
+                <%= image_pack_tag 'images/children-1.jpg', class:"img-fluid object-cover" %>
+            </div>
+            <div class="card-body px-0 py-2">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-3">
+                            <div class="oponent-avator overflow-hidden rounded-circle">
+                                <%= image_pack_tag 'images/photographer-1.jpg', class:"h-100 w-100 img-fluid object-cover"%>
+                            </div>
+                        </div>
+                        <div class="col-9 px-0">
+                            <div class="card-title mb-1">
+                                <h5 class="text-dark">写真家1</h5>
+                            </div>
+                            <div>
+                                <p class="text-black-50 mb-1">東京</p>
+                            </div>
+                            <div class>
+                                <p class="card-text">星の評価</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <% end %>
+</div>
