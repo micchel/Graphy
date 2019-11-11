@@ -1,127 +1,160 @@
-$main-color: #ffcc00;
-$sub-color: #00ccbb;
+.body {
+  padding-top: 0;
+  font-family: 'Kosugi', sans-serif;
+}
+.object-cover {
+  object-fit: cover;
+}
+.object-contain {
+  object-fit: contain;
+}
+.main-content {
+  height: 100vh;
+}
+.mw-100 {
+  max-width: 100%;
+}
+.mw-50 {
+  max-width: 50%;
+}
+
+
+
 .modak {
   font-family: 'Modak', cursive;
 }
-.cover {
-  background: -moz-linear-gradient(top,#FFF,$main-color 30%,#F89174); 
-  background: -webkit-linear-gradient(top,#FFF,$main-color 30%,#F89174); 
-  background: linear-gradient(to bottom,#FFF,$main-color 30%,#F89174); 
-  opacity: 0.5;
-  z-index: 1;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  width: 100%;
+.kosugi {
+  font-family: 'Kosugi', sans-serif;
 }
-.top-bg {
-  width: 100vw;
-  height: 100vh;
-  object-fit: cover;
+.bg-main {
+  background: $main-color;
 }
-.select {
-  height: 40vh;
-}
-.select:hover {
-  opacity: 0.8;
+.bg-sub {
+  background: $sub-color;
 }
 .btn-main {
-  background: #ff9400;
+  background: $main-color;
   border-color: #ff7200;
 }
 .btn-sub {
   background: $sub-color;
   border-color: #00b3a4;
 }
-.carousel-caption {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+.text-main {
+  color: $main-color;
 }
-.carousel-caption h1 {
-  font-size: 700%;
+.border-sub {
+  border-color: $sub-color;
+  border-width: .2em; 
 }
-.carousel-caption h3 {
-  font-size: 200%;
-  font-weight: 500;
-  padding-bottom: 1rem;
+.bg-gray {
+  background-color: #eeeeee;
 }
-.modal-dialog{
-  min-width:75vw;
-  max-width: 80vw;
-  width: 150vw;
+.bg-brown {
+  background-color: #b36800;
 }
+.text-shadow {
+  text-shadow: 1px 1px 2px black;
+}
+
+.my-avator {
+  height: 5rem;
+  width: 5rem;
+}
+.oponent-avator {
+  height: 3rem;
+  width: 3rem;
+}
+.chat-avator {
+  height: 4rem;
+  width: 4rem;
+}
+.detail-avator {
+  height: 10rem;
+  width: 10rem;
+}
+.photographer-link:hover {
+  text-decoration: none;
+  border: 3px solid $main-color;
+}
+
+.chat-number {
+  height: 3rem;
+  width: 3rem;
+}
+
+.twitter {
+  max-width:300px;
+  background-color:#55acee;
+  font-size:1.8em;
+}
+.instagram {
+  font-family:'Pacifico', cursive;
+  line-height:1.5em;
+  max-width:300px;
+  background-image:radial-gradient(at 20% 120%,orange, #f15a4d 25%, #f13f79 55%, #9933ff 100%);
+}
+.grapher-description {
+  line-height: 1.5;
+}
+.chat-button {
+  height: 60px;
+  line-height: 60px;
+  font-weight: 600;
+  font-size: 24px;
+}
+
+.chat-button:hover {
+  text-decoration: none;
+  opacity: 0.8;
+}
+
+.description-inner {
+  white-space: pre-wrap;
+}
+
+
 /*---Media Queries --*/
 @media (max-width: 992px) {
   
 }
 @media (max-width: 768px) {
-  .carousel-caption {
-    top: 45%;
+  .body {
+    padding-top: 90px;
   }
-  .carousel-caption h1 {
-    font-size: 600%;
-  }
-  .carousel-caption h3 {
-    font-size: 230%;
-    font-weight: 400;
-    padding-bottom: .2rem;
-  }
-  .carousel-caption p {
+
+  .header-text {
     font-size: 150%;
   }
-  .carousel-caption .btn {
-    font-size: 180%;
-    padding: 1rem 1.8rem;
-  }
-  .vartical {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-  }
-  .select {
-    height: 20vh
-  }
-  .modal-body h2,h3,h4 {
-    font-size: 130%;
+
+  .my-avator {
+    height: 3rem;
+    width: 3rem;
   }
 }
 @media (max-width: 576px) {
-  .carousel-caption {
-    top: 45%;
-  }
-  .carousel-caption h1 {
-    font-size: 400%;
-  }
-  .carousel-caption h3 {
+  .header-text {
     font-size: 150%;
   }
-  .carousel-caption p {
-    font-size: 150%;
+
+  .chat-name {
+    font-size: 110%;
   }
-  .carousel-caption .btn {
-    font-size: 120%;
-    padding: 8px 10px;
+
+  .detail-avator {
+    height: 6rem;
+    width: 6rem;
   }
-  .carousel-indicators {
-    display: none;
+  .detail-text {
+    font-size: 110%;
   }
-  .vartical {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
+  .detail-title {
+    width: 100%
   }
-  .modal-title {
-    font-size: 90%;
+  .jenre-text {
+    font-size: 80%;
   }
-  .select {
-    height: 20vh
-  }
-  .modal-body h2,h3,h4 {
-    font-size: 100%;
+  .grapher-name {
+    text-align: center;
   }
 }
