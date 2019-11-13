@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
   root 'top#index'
   resources :top, only: :index
-  resources :photographers do
+  resources :photographers
+  resources :users do
     collection do
-      get 'match'
+       get 'match'
     end
   end
-  resources :users
   resources :photographer_chat_rooms
+  resources :user_chat_rooms
 end
