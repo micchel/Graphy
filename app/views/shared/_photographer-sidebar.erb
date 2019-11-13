@@ -1,6 +1,6 @@
-<nav class="navbar navbar-sidebar navbar-expand-lg navbar-dark overflow-auto bg-main d-flex flex-lg-column justify-content-lg-start align-items-lg-start px-lg-0" style="z-index: 1030">
+<nav class="navbar navbar-sidebar navbar-expand-lg navbar-dark overflow-auto bg-sub d-flex flex-lg-column justify-content-lg-start align-items-lg-start px-lg-0" style="z-index: 1030">
     <div class="my-avator overflow-hidden rounded-circle ml-2">
-        <%= image_pack_tag 'images/man-1.jpg', class: "h-100 w-100 img-fluid object-cover" %>
+        <%= image_pack_tag 'images/photographer-1.jpg', class: "h-100 w-100 img-fluid object-cover" %>
     </div>
 
     <div>
@@ -15,23 +15,18 @@
     <div class="collapse navbar-collapse h-75 w-100" id="navbarsMenu">
         <ul class="navbar-nav flex-lg-column h-100 w-100 kosugi">
             <li class="nav-item w-100 py-lg-3">
-                <%= link_to match_users_path, class:"nav-link" do %>
-                    <h4><i class="fas fa-handshake"></i> マッチング</h4>
-                <% end %>
-            </li>
-            <li class="nav-item w-100 py-lg-3">
-                <%= link_to users_path, class:"nav-link" do %>
-                    <h4><i class="fas fa-camera"></i> フォトグラファー一覧</h4>
-                <% end %>
-            </li>
-            <li class="nav-item w-100 py-lg-3">
-                <%= link_to user_chat_rooms_path, class:"nav-link" do %>
-                    <h4><i class="fas fa-comments"></i> チャット一覧</h4>
-                <% end %>
-            </li>
-            <li class="nav-item w-100 py-lg-3">
                 <%= link_to "/", class:"nav-link" do %>
-                    <h4><i class="fas fa-cog"></i> プロフィール編集</h4>
+                    <h4 class="kosugi"><i class="fas fa-cog"></i> プロフィール編集</h4>
+                <% end %>
+            </li>
+            <li class="nav-item w-100 py-lg-3">
+                <%= link_to photographer_chat_rooms_path, class:"nav-link" do %>
+                    <h4 class="kosugi"><i class="fas fa-comments"></i> チャット一覧</h4>
+                <% end %>
+            </li>
+            <li class="nav-item w-100 py-lg-3">
+                <%= link_to photographer_path(1), class:"nav-link" do %>
+                    <h4 class="kosugi"><i class="fas fa-tasks"></i> 依頼管理</h4>
                 <% end %>
             </li>
         </ul>
