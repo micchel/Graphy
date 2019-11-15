@@ -63,3 +63,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'webpacker', '~> 3.5'
 gem 'rails-i18n', '~> 5.1'
+gem 'devise'
