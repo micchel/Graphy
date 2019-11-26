@@ -32,15 +32,13 @@
 
 .top-modal {
   .modal-dialog {
-    min-width:75vw;
-    max-width: 80vw;
-    width: 150vw;
+    max-width: 70vw;
+    .modal-header {
+      padding: 0.8rem;
+    }
     .modal-content {
       .select {
-        height: 20vh
-      }
-      .modal-body h2,h3,h5 {
-        font-size: 130%;
+        height: 30vh
       }
     }
   }
@@ -78,6 +76,16 @@
       }
     }
   }
+  .top-modal {
+    .modal-dialog {
+      width: 60vw;
+      .modal-content {
+        .select {
+          height: 20vh
+        }
+      }
+    }
+  }
 }
 @media (max-width: 576px) {
   .top-page {
@@ -106,8 +114,23 @@
     }
   }
   .top-modal {
-    .modal-title {
-      font-size: 90%;
+    .modal-dialog {
+      width: 90vw;
+      .modal-content {
+        .modal-header {
+          .modal-title {
+            font-size: 90%;
+          }
+        }
+        .modal-body {
+          & h3 {
+            font-size: 150%;
+          }
+          .select {
+            height: 20vh
+          }
+        }
+      }
     }
   }
 }

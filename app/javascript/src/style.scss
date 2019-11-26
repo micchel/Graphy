@@ -26,12 +26,20 @@
 .kosugi {
   font-family: 'Kosugi', sans-serif;
 }
+
 .bg-main {
   background: $main-color;
 }
 .bg-sub {
   background: $sub-color;
 }
+.bg-gray {
+  background-color: #eeeeee;
+}
+.bg-brown {
+  background-color: #b36800;
+}
+
 .btn-main {
   background: $main-color;
   border-color: #ff7200;
@@ -40,23 +48,29 @@
   background: $sub-color;
   border-color: #00b3a4;
 }
+
 .text-main {
   color: $main-color;
 }
-.border-sub {
-  border-color: $sub-color;
-  border-width: .2em; 
-}
-.bg-gray {
-  background-color: #eeeeee;
-}
-.bg-brown {
-  background-color: #b36800;
+.text-sub {
+  color: $sub-color;
 }
 .text-shadow {
   text-shadow: 1px 1px 2px black;
 }
 
+.border-main {
+  border: .2rem solid $main-color;
+}
+.border-bottom-main {
+  border-bottom: .2rem solid $main-color;
+}
+.border-sub {
+  border: .2rem solid $sub-color;
+}
+.border-bottom-sub {
+  border-bottom: .2rem solid $sub-color;
+}
 .my-avator {
   height: 5rem;
   width: 5rem;
@@ -85,7 +99,7 @@
 
 .twitter {
   max-width:300px;
-  background-color:#55acee;
+  background-color:#00aced;
   font-size:1.8em;
 }
 .instagram {
@@ -94,6 +108,12 @@
   max-width:300px;
   background-image:radial-gradient(at 20% 120%,orange, #f15a4d 25%, #f13f79 55%, #9933ff 100%);
 }
+.facebook {
+  max-width:300px;
+  background-color: #305097;
+  font-size: 1.8rem;
+}
+
 .grapher-description {
   line-height: 1.5;
 }
@@ -103,7 +123,6 @@
   font-weight: 600;
   font-size: 24px;
 }
-
 .chat-button:hover {
   text-decoration: none;
   opacity: 0.8;
@@ -112,7 +131,6 @@
 .description-inner {
   white-space: pre-wrap;
 }
-
 
 /*---Media Queries --*/
 @media (max-width: 992px) {
