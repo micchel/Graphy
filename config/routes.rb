@@ -4,7 +4,8 @@ Rails.application.routes.draw do
     registrations: "users/registrations"
   }
   devise_scope :user do
-    get 'aucenticated_user_root' => 'users#index'
+    get 'authenticated_user_root' => 'users#index'
+    get '/users/sign_out' => 'devise/sessions#destroy'
   end
 
   devise_for :photographers, path: 'photographers', controllers: {
@@ -12,7 +13,8 @@ Rails.application.routes.draw do
     registrations: "photographers/registrations"
   }
   devise_scope :photographer do
-    get 'aucenticated_photographer_root' => 'photographer_chat_rooms#index'
+    get 'authenticated_photographer_root' => 'photographer_chat_rooms#index'
+    get '/photographers/sign_out' => 'devise/sessions#destroy'
   end
 
   root 'top#index'
@@ -20,7 +22,7 @@ Rails.application.routes.draw do
   resources :photographers, only: :show
   resources :users, only: [:index, :show] do
     collection do
-       get 'match'
+      get 'match'
     end
   end
   resources :photographer_chat_rooms, only: :index
