@@ -7,11 +7,13 @@ class DeviseCreatePhotographers < ActiveRecord::Migration[5.2]
       t.string :name,               null: false, degault: ""
       t.string :email,              null: false, default: "", unique: true
       t.string :encrypted_password, null: false, default: ""
-      t.integer :sex,               null: false
-      t.string :twitter_url,        default: "", unique: true
+      t.integer :sex_type,          null: false
+      t.string :facebook_url,       default: "", unique: true
       t.string :instagram_url,      default: "", unique: true
+      t.string :twitter_url,        default: "", unique: true
       t.integer :price,             null:false
       t.text :self_introduction
+      t.string :avatar,             null: false, default: ""
 
       ## Recoverable
       t.string   :reset_password_token
