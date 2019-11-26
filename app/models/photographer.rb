@@ -3,4 +3,10 @@ class Photographer < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  has_many :photographer_prefectures, dependent: :destroy
+  has_many :prefectures, through: :photographer_prefectures
+
+  enum sex: { male:1, female:2 }
+  mount_uploader :avatar, ImageUploader
 end

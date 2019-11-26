@@ -12,7 +12,13 @@
     <link href="https://fonts.googleapis.com/css?family=Kosugi&display=swap" rel="stylesheet">
   </head>
 
-  <body>
+  <body class="bg-light">
+    <% if flash[:notice] %>
+      <div class="alert alert-info mb-0 kosugi"><%= flash[:notice] %></div>
+    <% end %>
+    <% if flash[:alert] %>
+      <div class="alert alert-danger mb-0 kosugi"><%= flash[:alert] %></div>
+    <% end %>
     <%= yield %>
   </body>
 </html>

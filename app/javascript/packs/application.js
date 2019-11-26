@@ -12,4 +12,9 @@ console.log('Hello World from Webpacker')
 import 'bootstrap'
 import '@fortawesome/fontawesome-free/js/all'
 import '../src/application.scss'
+
 const images = require.context('../images/', true)
+import '../src/js/avatar-upload.js';
+
+import Rails from 'rails-ujs'
+Rails.start()

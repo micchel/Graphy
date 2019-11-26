@@ -1,26 +1,28 @@
-<h2>Log in</h2>
+<div class="container devise-form">
+    <header class="kosugi brand-link p-2 text-center position-relative">
+        <%= link_to root_path do %>
+            <h1 class="modak text-sub">Graphy</h1>
+        <% end %>
+        <h4 class="kosugi text-dark mt-3">フォトグラファーログイン</h4>
+    </header>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "mt-2"}) do |f| %>
+        <div class="kosugi form-group">
+            <%= f.label :email do %>
+                <p class="d-inline-block kosugi mb-0">メールアドレス</p>
+            <% end %>
+            <%= f.email_field :email, autofocus: true, class: "form-control", autocomplete: "email", placeholder: "メールアドレスを入力してください" %>
+        </div>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+        <div class="kosugi form-group">
+            <%= f.label :password do %>
+                <p class="d-inline-block kosugi mb-0">パスワード</p>
+            <% end %>
+            <%= f.password_field :password, class: "form-control", autocomplete: "off", placeholder: "パスワードを入力してください" %>
+        </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
-
-<%= render "photographers/shared/links" %>
+        <div class="kosugi form-group text-center">
+            <%= f.submit "ログインする", class: "submit-btn p-2 w-50 rounded btn-sub text-white w-50 mt-3" %>
+            <!-- <%= render "photographers/shared/links" %> -->
+        </div>
+    <% end %>
+</div>

@@ -10,17 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_14_092558) do
+ActiveRecord::Schema.define(version: 2019_11_25_042217) do
+
+  create_table "photographer_prefectures", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "photographer_id", null: false
+    t.bigint "prefecture_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["photographer_id"], name: "index_photographer_prefectures_on_photographer_id"
+    t.index ["prefecture_id"], name: "index_photographer_prefectures_on_prefecture_id"
+  end
 
   create_table "photographers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
-    t.integer "sex", null: false
-    t.string "twitter_url", default: ""
+    t.integer "sex_type", null: false
+    t.string "facebook_url", default: ""
     t.string "instagram_url", default: ""
+    t.string "twitter_url", default: ""
     t.integer "price", null: false
     t.text "self_introduction"
+    t.string "avatar", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -30,13 +41,18 @@ ActiveRecord::Schema.define(version: 2019_11_14_092558) do
     t.index ["reset_password_token"], name: "index_photographers_on_reset_password_token", unique: true
   end
 
+  create_table "prefectures", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "prefecture", default: "", null: false
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
-    t.integer "sex", null: false
-    t.integer "prefecture", null: false
+    t.integer "sex_type", null: false
+    t.integer "prefecture_id", null: false
     t.text "self_introduction"
+    t.string "avatar", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -46,4 +62,6 @@ ActiveRecord::Schema.define(version: 2019_11_14_092558) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "photographer_prefectures", "photographers"
+  add_foreign_key "photographer_prefectures", "prefectures"
 end
