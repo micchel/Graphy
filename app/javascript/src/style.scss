@@ -71,6 +71,15 @@
 .border-bottom-sub {
   border-bottom: .2rem solid $sub-color;
 }
+
+.button-link {
+  opacity: 0.5;
+  &:hover {
+    opacity: 1;
+    text-decoration: none;
+  }
+}
+
 .my-avator {
   height: 5rem;
   width: 5rem;
