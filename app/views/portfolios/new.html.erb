@@ -1,0 +1,100 @@
+<div class="container-fluid px-0">
+    <div class="row">
+        <div class="col-lg-3 pr-lg-0" style="z-index: 1030" >
+            <%= render 'shared/photographer-sidebar' %>
+        </div>
+
+        <div class="col-lg-9 px-lg-0 bg-light vh-100 overflow-auto">
+            <header class="w-100 bg-white text-center py-2 border-bottom-sub">
+                <h3 class="text-dark kosugi header-text mb-0"><i class="fas fa-camera pr-1"></i>ポートフォリオ登録</h3>
+            </header>
+            <div class="container-fluid mt-1 mb-3">
+                <div class="portfolio-introduction text-center mb-2">
+                    <h4 class="kosugi header-text">最大6つのカテゴリー別に</h4>
+                    <h4 class="kosugi header-text">マッチング用の写真を登録しましょう！</h4>
+                </div>
+                
+                <div class="row" id="portfolio_frame">
+                    <% @categories.each.with_index(1) do |category,index| %>
+                        <% if portfolio = current_photographer.portfolios.find_by(category_id: index) %>
+
+                            <div class="col-lg-6 d-flex flex-column align-items-center mb-4">
+                                <div class="category-box p-0">
+                                    <h5 class="category-text kosugi font-weight-bold text-center mb-0">カテゴリー: <%= category.name %></h5>
+                                </div>
+                                <div class="portfolio-board d-flex flex-column align-items-center bg-gray shadow pt-2 mb-2">
+                                    <%= image_tag current_photographer.portfolios.find_by(category_id: index).image.url, class: "portfolio-image mb-1" %>
+                                </div>
+                                <div class="registration-box pr-0 w-75 d-flex">
+                                    <%= link_to edit_portfolio_path(portfolio), class: "d-inline-block mx-1 w-50" do %>
+                                        <button type="button" class="portfolio-btn btn btn-sub btn-lg p-1 w-100">
+                                            <p class="kosugi text-white mb-0">写真変更へ進む</p>
+                                        </button>
+                                    <% end %>
+                                    <%= link_to "/portfolios/#{portfolio.id}",data: {confirm: "本当にこの写真を削除しますか？"}, class: "d-inline-block mx-1 w-50", method: :delete do %>
+                                        <button type="button" class="portfolio-btn btn bg-danger btn-lg p-1 w-100">
+                                            <p class="kosugi text-white mb-0">写真を削除する</p>
+                                        </button>
+                                    <% end %>
+                                </div>
+                            </div>
+                            
+                        <% else %>
+
+                            <div class="col-lg-6 d-flex flex-column align-items-center mb-4">
+                                <div class="category-box p-0">
+                                    <h5 class="category-text kosugi font-weight-bold text-center mb-0">カテゴリー: <%= category.name %></h5>
+                                </div>
+                                    <div class="no-image mt-0 mb-2">
+                                        <div class="h-100 w-100 d-flex align-items-center justify-content-center">
+                                            <h3 class="kosugi">未 登 録</h3>
+                                        </div>
+                                    </div>
+                                <div class="registration-box pr-0 w-75">
+                                    <button type="button" class="portfolio-btn btn btn-sub btn-lg p-1 w-100" data-toggle="modal" data-target="#portfolio-<%= index %>">
+                                        <p class="kosugi text-white mb-0">写真登録へ進む</p>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="modal fade" id="portfolio-<%= index %>" tabindex="-1" role="dialog" aria-labelledby="portfolio-label-<%= index %>" aria-hidden="true">
+                                <div class="modal-dialog mx-auto" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h3 class="modal-title" id="portfolio-label-<%= index %>"><%= category.name %>の写真を登録</h3>
+                                            <button type="button" class="close portfolio-close" data-id="<%= index %>" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <%= form_for @portfolio, html: { class: "field portfolio-form w-100 h-100",id: "portfolio_submit_#{ index }", data:{id:index} } do |f| %>
+                                                <div class="d-flex flex-column align-items-center mb-4">
+                                                    <%= f.label "input_#{index}", class:"portfolio-label position-relative mt-0 mb-1 bg-sub d-flex align-items-center justify-content-center", data:{id:index} do %>
+                                                        <div class="portfolio-description d-flex align-items-center justify-content-center position-absolute text-white w-100 h-100">画像をアップロード</div>
+                                                        <i class="fas fa-camera fa-5x text-white"></i>
+                                                        <%= f.file_field :image, class:"portfolio-input d-none", id:"portfolio_input_#{index}", data:{id:index} %>
+                                                    <% end %>
+                                                    <%= f.hidden_field :category_id, :value => category.id %>
+                                                </div>
+                                                <div class="portfolio-submit d-none text-center my-3 w-100" data-id="<%= index %>">
+                                                    <%= f.submit "ポートフォリオに登録", class: "portfolio-submit-btn btn submit-btn btn-sub text-white font-weight-bold w-50 p-2 rounded" %>
+                                                </div>
+                                            <% end %>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary portfolio-close" data-id="<%= index %>" data-dismiss="modal">閉じる</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <% end %>
+                        
+                    <% end %>
+                    
+                </div>
+                
+            </div>
+        </div>
+
+    </div>
+</div>
