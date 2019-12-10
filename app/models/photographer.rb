@@ -6,6 +6,7 @@ class Photographer < ApplicationRecord
 
   has_many :photographer_prefectures, dependent: :destroy
   has_many :prefectures, through: :photographer_prefectures
+  has_many :portfolios, dependent: :destroy
 
   enum sex: { male:1, female:2 }
   mount_uploader :avatar, ImageUploader
