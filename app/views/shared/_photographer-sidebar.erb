@@ -15,6 +15,11 @@
     <div class="collapse navbar-collapse h-75 w-100" id="navbarsMenu">
         <ul class="navbar-nav flex-lg-column h-100 w-100 kosugi">
             <li class="nav-item w-100 py-lg-3 border">
+                <%= link_to new_portfolio_path, class:"nav-link" do %>
+                    <h4 class="kosugi"><i class="fas fa-camera"></i> ポートフォリオ登録</h4>
+                <% end %>
+            </li>
+            <li class="nav-item w-100 py-lg-3 border">
                 <%= link_to edit_photographer_registration_path, class:"nav-link" do %>
                     <h4 class="kosugi"><i class="fas fa-cog"></i> プロフィール編集</h4>
                 <% end %>

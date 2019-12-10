@@ -15,6 +15,8 @@ import '../src/application.scss'
 
 const images = require.context('../images/', true)
 import '../src/js/avatar-upload.js';
+import '../src/js/portfolio-upload.js';
+import '../src/js/portfolio-edit.js';
 
-import Rails from 'rails-ujs'
+var Rails = require('rails-ujs')
 Rails.start()

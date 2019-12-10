@@ -1,0 +1,36 @@
+<div class="container-fluid px-0">
+    <div class="row">
+        <div class="col-lg-3 pr-lg-0" style="z-index: 1030">
+            <%= render 'shared/photographer-sidebar' %>
+        </div>
+
+        <div class="col-lg-9 px-lg-0 bg-light vh-100 overflow-auto">
+            <header class="w-100 bg-white text-center py-2 border-bottom-sub">
+                <h3 class="text-dark kosugi header-text mb-0"><i class="fas fa-camera pr-1"></i>ポートフォリオ変更</h3>
+            </header>
+            <div class="container-fluid mt-1 mb-3">
+                <div class="portfolio-edit-introduction text-center mb-2">
+                    <h4 class="kosugi header-text"><%= @category.name %>用の写真を変更します</h4>
+                </div>
+                <%= form_for @portfolio, html: { class: "portfolio-form w-100 h-100", id: "portfolio_edit_submit" } do |f| %>
+                    <div class="d-flex flex-column align-items-center mb-4">
+                        <%= f.label "input_edit", class:"portfolio-edit-label position-relative mt-0 mb-1 bg-gray d-flex align-items-center justify-content-center", id:"portfolio_edit_label" do %>
+                            <div class="portfolio-description d-flex align-items-center justify-content-center position-absolute text-white w-100 h-100">画像をアップロード</div>
+                            <%= image_tag @portfolio.image.url, class: "portfolio-edit-description mb-1", id: "portfolio_edit_description" %>
+                            <%= f.file_field :image, class:"portfolio-input d-none", id:"portfolio_input_edit" %>
+                        <% end %>
+                        <%= f.hidden_field :category_id, :value => @category.id %>
+                    </div>
+                    <div class="d-none portfolio-submit text-center my-3 w-100" id="portfolio_edit_btn">
+                        <%= f.submit "ポートフォリオを変更", class: "portfolio-submit-btn btn submit-btn btn-sub text-white font-weight-bold w-50 p-2 rounded" %>
+                    </div>
+                <% end %>
+                <%= link_to new_portfolio_path, class: "button-link d-block w-100 d-flex justify-content-center mt-2 mb-3" do %>
+                    <button type="button" class="btn btn-lg border-sub p-1 w-50 mb-3">
+                        <p class="kosugi text-sub mb-0">ポートフォリオ一覧へ戻る</p>
+                    </button>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>

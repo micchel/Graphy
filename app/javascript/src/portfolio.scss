@@ -1,0 +1,160 @@
+.portfolio-board {
+  height: 250px;
+  width: 420px;
+  flex-wrap: wrap;
+  .portfolio-image {
+    height: 230px;
+    width: 400px;
+    object-fit: contain;
+  }
+ }
+.no-image {
+  border: .2rem dashed $sub-color;
+  height: 250px;
+  width: 420px;
+}
+
+.portfolio-label {
+  cursor: pointer;
+  height: 250px;
+  width: 420px;
+  &:hover .portfolio-description {
+    opacity:1;
+  }
+  .portfolio-description {
+    transition: opacity .5s;
+    opacity: 0;
+    font-size: 15px;
+    background: rgba(5, 5, 5, .5);
+  }
+}
+
+
+.portfolio-edit-introduction {
+  margin-top: 20px;
+}
+.portfolio-edit-label {
+  cursor: pointer;
+  height: 400px;
+  width: 570px;
+  &:hover .portfolio-description {
+    opacity:1;
+  }
+  .portfolio-description {
+    transition: opacity .5s;
+    opacity: 0;
+    font-size: 30px;
+    background: rgba(5, 5, 5, .5);
+  }
+  .portfolio-edit-description {
+    height: 380px;
+    width: 550px;
+    object-fit: contain;
+  }
+}
+
+.portfolio-frame {
+  height: 290px;
+  width: 420px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  .portfolio-preview {
+    height: 230px;
+    width: 400px;
+    object-fit: contain;
+  }
+}
+
+.portfolio-edit-frame {
+  height: 400px;
+  width: 570px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  .portfolio-edit-preview {
+    height: 340px;
+    width: 550px;
+    object-fit: contain;
+  }
+}
+
+.category-box {
+  width: 420px;
+  .category-text {
+    line-height: 3rem;
+  }
+}
+
+.portfolio-btn {
+  &:hover {
+    opacity: 0.6;
+    transition: opacity .5s;
+  }
+}
+.portfolio-image-description {
+  height: 230px;
+  width: 400px;
+  object-fit: contain;
+}
+
+/*---Media Queries --*/
+@media (max-width: 992px) {
+  
+}
+@media (max-width: 768px) {
+  
+}
+@media (max-width: 576px) {
+  .portfolio-introduction {
+    & h4 {
+      font-size: 110%;
+    }
+  }
+  .portfolio-board {
+    height: 200px;
+    width: 370px;
+    .portfolio-image {
+      height: 180px;
+      width: 350px;
+    }
+  }
+  .no-image {
+    height: 200px;
+    width: 370px;
+  }
+  .portfolio-label {
+    height: 200px;
+    width: 370px;
+    .portfolio-description {
+      transition: opacity .5s;
+      opacity: 0;
+      font-size: 15px;
+      background: rgba(5, 5, 5, .5);
+    }
+  }
+  .category-box {
+    width: 370px;
+    & h5 {
+      font-size: 100%;
+    }
+  }
+
+  .portfolio-btn {
+    & p {
+      font-size: 70%;
+    }
+  }
+
+  .portfolio-edit-introduction {
+    & h4 {
+      font-size: 110%;
+    }
+  }
+  .portfolio-edit-label {
+    height: 200px;
+    width: 370px;
+    .portfolio-edit-description { 
+      height: 180px;
+    }
+  }
+
+}
