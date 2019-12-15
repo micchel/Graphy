@@ -17,6 +17,9 @@ const images = require.context('../images/', true)
 import '../src/js/avatar-upload.js';
 import '../src/js/portfolio-upload.js';
 import '../src/js/portfolio-edit.js';
+import '../src/js/jquery.jTinder.js';
+import '../src/js/jquery.transform2d.js';
+import '../src/js/jTinder-slide.js';
 
 var Rails = require('rails-ujs')
 Rails.start()
