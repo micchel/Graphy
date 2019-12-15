@@ -22,6 +22,7 @@
 
 /public/assets
 .byebug_history
+/db/fixtures/pictures
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
@@ -34,7 +35,3 @@ yarn-debug.log*
 database.yml
 public/uploads/*
 .DS_Store
-
-app/javascript/images/children-1.jpg
-app/javascript/images/man-1.jpg
-app/javascript/images/photographer-1.jpg
