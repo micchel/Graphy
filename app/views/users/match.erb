@@ -5,26 +5,25 @@
         </div>
 
         <div class="main-content col-lg-9 pl-lg-0 bg-light overflow-auto vh-100">
-            <header class="w-100 bg-white text-center py-2 border-bottom-main">
-                <h3 class="text-dark kosugi header-text mb-0"><i class="fas fa-handshake pr-1"></i>好みの写真を選ぼう！</h3>
+            <header class="w-100 bg-white text-center py-2 mb-4 border-bottom-main">
+                <h3 class="text-dark kosugi header-text mb-0"><i class="fas fa-handshake pr-1"></i>好みの写真を選びましょう！</h3>
             </header>
-            <div id="tinderslide" class="position-relative bg-white mx-auto">
-                <ul class="m-0 position-relative d-block h-100">
-                    <%# <% @users.each do |user| %> 
-                    <%# <li data-user_id="<%= user.id %>
-                    <li data-user_id="1" class="d-block w-100 h-100 overflow-hidden position-absolute bg-gray shadow p-2" style="top:0; left:0; z-index:2;">
-                        <div class="userName position-absolute text-white" style="bottom:5px; z-index:100;">
-                            <h4 class="text-shadow">写真家1</h4>
-                        </div>
-                        <%= image_pack_tag 'images/photographer-1.jpg', class:"w-100 mb-1 overflow-hidden" %>
-                    </li>
-                    <%# <% end %>
+            <div id="tinderslide">
+                <ul>
+                    <% @portfolios.each do |portfolio| %>
+                        <li data-photographer_id="<%= portfolio.photographer.id %>" class="bg-gray">
+                            <%= image_tag portfolio.image.url %>
+                            <h4 class="photographer-name"><%= portfolio.photographer.name %></h4>
+                            <div class="like"><%= image_pack_tag 'images/liked.png'%></div>
+                            <div class="dislike"><%= image_pack_tag 'images/nope.png'%></div>
+                        </li>
+                    <% end %>
                 </ul>
-                <div class="no-user d-none position-absolute w-100 text-center" style="top:50%; left:50%;">
-                    <h4>近くにフォトグラファーがいません</h4>
+                <div class="no-portfolio kosugi">
+                    <h2>まだ選んでいない作品はありません</h2>
                 </div>
             </div>
-            <div class="actions d-flex justify-content-between  my-2 mx-auto" id="actionBtnArea">
+            <div class="actions" id="action_btn_area">
                 <a href="#" class="dislike">
                     <i class="fas fa-frown"></i>
                 </a>

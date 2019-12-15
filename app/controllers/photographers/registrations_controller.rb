@@ -62,7 +62,7 @@ class Photographers::RegistrationsController < Devise::RegistrationsController
   end
 
   def after_update_path_for(resource)
-    authenticated_photographer_root_path
+    new_portfolio_path
   end
 
   # The path used after sign up for inactive accounts.

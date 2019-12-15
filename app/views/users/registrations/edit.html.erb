@@ -87,7 +87,7 @@
                 <% end %>
                 <div class="position-relative">
                     <i class="fas fa-chevron-down select-arrow"></i>
-                    <%= f.collection_select :prefecture_id, Prefecture.all, :id, :prefecture, {prompt: "選択してください"}, class:"prefecture-select w-100 px-2 border border-main rounded" %>
+                    <%= f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: "選択してください"}, class:"prefecture-select w-100 px-2 border border-main rounded" %>
                 </div>
             </div>
 

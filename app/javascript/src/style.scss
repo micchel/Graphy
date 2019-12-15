@@ -1,5 +1,8 @@
 .body {
-  padding-top: 0;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  position: relative;
   font-family: 'Kosugi', sans-serif;
 }
 .object-cover {
@@ -17,7 +20,6 @@
 .mw-50 {
   max-width: 50%;
 }
-
 
 
 .modak {

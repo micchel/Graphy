@@ -8,5 +8,10 @@ class UsersController < ApplicationController
   end
 
   def match
+    all_portfolios = Portfolio.all.includes(:photographer)
+    @portfolios = all_portfolios.order("RAND()").select {
+      |portfolio| portfolio.not_matched?(current_user)
+    }
+    gon.portfolios = @portfolios
   end
 end
