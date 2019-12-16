@@ -8,29 +8,47 @@
             <header class="w-100 bg-white text-center py-2 mb-4 border-bottom-main">
                 <h3 class="text-dark kosugi header-text mb-0"><i class="fas fa-handshake pr-1"></i>好みの写真を選びましょう！</h3>
             </header>
-            <div id="tinderslide">
-                <ul>
-                    <% @portfolios.each do |portfolio| %>
-                        <li data-photographer_id="<%= portfolio.photographer.id %>" class="bg-gray">
-                            <%= image_tag portfolio.image.url %>
-                            <h4 class="photographer-name"><%= portfolio.photographer.name %></h4>
-                            <div class="like"><%= image_pack_tag 'images/liked.png'%></div>
-                            <div class="dislike"><%= image_pack_tag 'images/nope.png'%></div>
-                        </li>
-                    <% end %>
-                </ul>
-                <div class="no-portfolio kosugi">
-                    <h2>まだ選んでいない作品はありません</h2>
+
+            <%= form_tag search_users_path, method: "get", class:"w-100 d-flex justify-content-center mb-2 position-relative" do %>
+                <i class="fas fa-chevron-down arrow-btn"></i>
+                <%= select_tag :category,
+                    options_from_collection_for_select(Category.all, :id, :name),
+                    {
+                        prompt: "カテゴリー選択",
+                        class: "category-select"
+                    }
+                %>
+                <%= submit_tag "更新", class: "category-search btn-main text-white rounded" %>
+            <% end %>
+            <% if @portfolios.length == 0 %>
+                <div class="no-category d-flex border justify-content-center align-items-center bg-white">
+                    <h2 class="kosugi text-dark">カテゴリーを選択してください</h2>
                 </div>
-            </div>
-            <div class="actions" id="action_btn_area">
-                <a href="#" class="dislike">
-                    <i class="fas fa-frown"></i>
-                </a>
-                <a href="#" class="like">
-                    <i class="fas fa-grin-beam"></i>
-                </a>
-            </div>
+            <% else %>
+                <div id="tinderslide">
+                    <ul>
+                        <% @portfolios.each do |portfolio| %>
+                            <li data-photographer_id="<%= portfolio.photographer.id %>" class="bg-gray">
+                                <%= image_tag portfolio.image.url %>
+                                <h4 class="photographer-name"><%= portfolio.photographer.name %></h4>
+                                <div class="like"><%= image_pack_tag 'images/liked.png'%></div>
+                                <div class="dislike"><%= image_pack_tag 'images/nope.png'%></div>
+                            </li>
+                        <% end %>
+                        <div class="no-portfolio kosugi border">
+                            <h2>まだ選んでいない作品はありません</h2>
+                        </div>
+                    </ul>
+                </div>
+                <div class="actions" id="action_btn_area">
+                    <a href="#" class="dislike">
+                        <i class="fas fa-frown"></i>
+                    </a>
+                    <a href="#" class="like">
+                        <i class="fas fa-grin-beam"></i>
+                    </a>
+                </div>
+            <% end %>
         </div>
 
     </div>
