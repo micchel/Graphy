@@ -1,5 +1,5 @@
 $(window).on('load',function() {
-  if(document.URL.match(/\/portfolio\/\d+\/edit/)) {
+  if(document.URL.match(/\/portfolios\/\d+\/edit/)) {
     var editPortfolioFile;
     var existingImage = $("#portfolio_edit_description").attr("src");
     console.log(existingImage);
@@ -17,7 +17,7 @@ $(window).on('load',function() {
     }
 
     function replaceImg() {
-      var portfolioLabel = $(`<label for="portfolio_input_edit" class="portfolio-edit-label position-relative mt-0 mb-1 bg-gray d-flex align-items-center justify-content-center">
+      var portfolioLabel = $(`<label for="portfolio_input_edit" class="portfolio-edit-label position-relative mt-0 mb-1 bg-gray d-flex align-items-center justify-content-center" id="portfolio_edit_label">
                                 <div class="portfolio-description d-flex align-items-center justify-content-center position-absolute text-white w-100 h-100">画像をアップロード</div>
                                 <img src="${existingImage}" class="portfolio-edit-description w-100 mb-1" id="portfolio_edit_description">
                                 <input type="file" name="portfolio[image]" class="portfolio-input d-none" id="portfolio_input_edit">
@@ -82,4 +82,4 @@ $(window).on('load',function() {
       });
     });
   }
-})
+});

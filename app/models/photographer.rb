@@ -12,4 +12,8 @@ class Photographer < ApplicationRecord
 
   enum sex: { male:1, female:2 }
   mount_uploader :avatar, ImageUploader
+
+  def activity_area
+    self.prefectures
+  end
 end

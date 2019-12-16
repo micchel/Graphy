@@ -10,7 +10,7 @@
             </header>
             <div class="container-fluid">
                 <div class="row">
-                    <%= render 'shared/photographer-card' %>
+                    <%= render partial: "shared/photographer-card", collection: @photographers, as: "photographer" %>
                 </div>
             </div>
         </div>

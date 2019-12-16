@@ -15,10 +15,11 @@ Rails.application.routes.draw do
   end
   root 'top#index'
   resources :top, only: :index
-  resources :photographers, only: :show
-  resources :users, only: [:index, :show] do
+  resources :photographers, only: [:index,:show]
+  resources :users do
     collection do
       get 'match'
+      get 'search'
     end
   end
   resources :portfolios, only: [:new, :create, :edit, :update, :destroy]
