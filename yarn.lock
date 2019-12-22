@@ -7,6 +7,16 @@
   resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free/-/fontawesome-free-5.11.2.tgz#8644bc25b19475779a7b7c1fc104bc0a794f4465"
   integrity sha512-XiUPoS79r1G7PcpnNtq85TJ7inJWe0v+b5oZJZKb0pGHNIV6+UiNeQWiFGmuQ0aj7GEhnD/v9iqxIsjuRKtEnQ==
 
+"@rails/actioncable@^6.0.2-1":
+  version "6.0.2-1"
+  resolved "https://registry.yarnpkg.com/@rails/actioncable/-/actioncable-6.0.2-1.tgz#8b16bff4d4c91b71069fe54bab9e23f709ccf89b"
+  integrity sha512-65RcsdKcvvc6V4TvsesPmFlHO8gO3ZWnLWTNq4DhP6zW50XlyiR3DazX88EjskCXGqS/uRQ5ppsIMDc05aiTgA==
+
+"@rails/ujs@^6.0.2-1":
+  version "6.0.2-1"
+  resolved "https://registry.yarnpkg.com/@rails/ujs/-/ujs-6.0.2-1.tgz#1273f773bc98832371cb09aab619d6120e794b39"
+  integrity sha512-H1yMA4/M8Vdie/TgyNiOkUdFly3g9HGSbnVPl7kiRVnGMZuT/APnCNyvgYWBQbTtYDYB9rrZAAgghxtt1ABDIA==
+
 "@rails/webpacker@3.5":
   version "3.5.5"
   resolved "https://registry.yarnpkg.com/@rails/webpacker/-/webpacker-3.5.5.tgz#8911c66bcefc8bc6b91270e92f0d39e3c2d43116"
@@ -5891,11 +5901,6 @@ querystringify@^2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/querystringify/-/querystringify-2.1.1.tgz#60e5a5fd64a7f8bfa4d2ab2ed6fdf4c85bad154e"
   integrity sha512-w7fLxIRCRT7U8Qu53jQnJyPkYZIaR4n5151KMfcJlO/A9397Wxb1amJvROTK6TOnp7PfoAmg/qXiNHI+08jRfA==
-
-rails-ujs@^5.2.3:
-  version "5.2.3"
-  resolved "https://registry.yarnpkg.com/rails-ujs/-/rails-ujs-5.2.3.tgz#4b65ea781a6befe62e96da6362165286a1fe4099"
-  integrity sha512-rYgj185MowWFBJI1wdac2FkX4yFYe4+3jJPlB+CTY7a4rmIyg0TqE4vYZmSBBesp7blPUa57oqKzwQjN7eVbEQ==
 
 randomatic@^3.0.0:
   version "3.1.1"
