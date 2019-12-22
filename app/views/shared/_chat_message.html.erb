@@ -1,0 +1,15 @@
+<% if (chat_message.user_id != 0 && chat_message.photographer_id == 0) %>
+    <div class="message">
+        <%= image_tag chat_message.user.avatar.url, class:"chat-show-avatar" %>
+        <div class="triangle user-triangle"></div>
+        <div class="common-message user-message"><%= simple_format (h(chat_message.message)),{} ,wrapper_tag: "div" %></div>
+        <p class="message-date"><%= chat_message.created_at.strftime("%Y/%m/%d %H:%M") %></p>
+    </div>
+<% elsif (chat_message.photographer_id != 0 && chat_message.user_id == 0) %>
+    <div class="message">
+        <%= image_tag chat_message.photographer.avatar.url, class:"chat-show-avatar" %>
+        <div class="triangle photographer-triangle"></div>
+        <div class="common-message photographer-message"><%= simple_format (h(chat_message.message)),{} ,wrapper_tag: "div" %></div>
+        <p class="message-date"><%= chat_message.created_at.strftime("%Y/%m/%d %H:%M") %></p>
+    </div>
+<% end %>
