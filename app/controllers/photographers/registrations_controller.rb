@@ -44,12 +44,12 @@ class Photographers::RegistrationsController < Devise::RegistrationsController
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys:[:name, :sex_type, :facebook_url, :instagram_url, :twitter_url, :price, :self_introduction, :avatar, prefecture_ids: []])
+    devise_parameter_sanitizer.permit(:sign_up, keys:[:name, :main_camera, :sex_type, :facebook_url, :instagram_url, :twitter_url, :price, :self_introduction, :avatar, prefecture_ids: []])
   end
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_account_update_params
-    devise_parameter_sanitizer.permit(:account_update, keys:[:name, :sex_type, :facebook_url, :instagram_url, :twitter_url, :price, :self_introduction, :avatar, prefecture_ids: []])
+    devise_parameter_sanitizer.permit(:account_update, keys:[:name, :main_camera, :sex_type, :facebook_url, :instagram_url, :twitter_url, :price, :self_introduction, :avatar, prefecture_ids: []])
   end
 
   def update_resource(resource, configure_account_update_params)

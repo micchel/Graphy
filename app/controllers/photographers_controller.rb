@@ -9,6 +9,7 @@ class PhotographersController < ApplicationController
 
   def show
     @photographer = Photographer.find(params[:id])
+    @chatroom = Chatroom.find_by(user_id: current_user.id, photographer_id: @photographer.id)
     @portfolios = @photographer.portfolios
   end
 end
