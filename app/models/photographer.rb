@@ -9,6 +9,8 @@ class Photographer < ApplicationRecord
   has_many :portfolios, dependent: :destroy
   has_many :reactions, dependent: :destroy
   has_many :users, through: :reactions
+  has_many :chatrooms, dependent: :destroy
+  has_many :chat_messages, dependent: :destroy
 
   enum sex: { male:1, female:2 }
   mount_uploader :avatar, ImageUploader
