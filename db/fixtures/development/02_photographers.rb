@@ -7,6 +7,7 @@ Photographer.seed do |s|
   s.email = 'p1@p1'
   s.password = 'p1p1p1'
   s.name = 'テスト太郎'
+  s.main_camera = 'Canon'
   s.sex_type = 0
   s.facebook_url = ""
   s.instagram_url = ""
@@ -20,6 +21,7 @@ Photographer.seed do |s|
   s.email = 'p2@p2'
   s.password = 'p2p2p2'
   s.name = 'テスト壱子'
+  s.main_camera = 'Nicon'
   s.sex_type = 1
   s.facebook_url = ""
   s.instagram_url = ""
@@ -33,6 +35,7 @@ Photographer.seed do |s|
   s.email = 'p3@p3'
   s.password = 'p3p3p3'
   s.name = 'テスト二郎'
+  s.main_camera = 'Canon'
   s.sex_type = 0
   s.facebook_url = ""
   s.instagram_url = ""
@@ -46,6 +49,7 @@ Photographer.seed do |s|
   s.email = 'p4@p4'
   s.password = 'p4p4p4'
   s.name = 'テスト弐子'
+  s.main_camera = 'Nicon'
   s.sex_type = 1
   s.facebook_url = ""
   s.instagram_url = ""
@@ -59,6 +63,7 @@ Photographer.seed do |s|
   s.email = 'p5@p5'
   s.password = 'p5p5p5'
   s.name = 'テスト三郎'
+  s.main_camera = 'Canon'
   s.sex_type = 0
   s.facebook_url = ""
   s.instagram_url = ""
@@ -72,6 +77,7 @@ Photographer.seed do |s|
   s.email = 'p6@p6'
   s.password = 'p6p6p6'
   s.name = 'テスト参子'
+  s.main_camera = 'Nicon'
   s.sex_type = 1
   s.facebook_url = ""
   s.instagram_url = ""
@@ -85,6 +91,7 @@ Photographer.seed do |s|
   s.email = 'p7@p7'
   s.password = 'p7p7p7'
   s.name = 'テスト四郎'
+  s.main_camera = 'Canon'
   s.sex_type = 0
   s.facebook_url = ""
   s.instagram_url = ""
@@ -98,6 +105,7 @@ Photographer.seed do |s|
   s.email = 'p8@p8'
   s.password = 'p8p8p8'
   s.name = 'テスト肆子'
+  s.main_camera = 'Nicon'
   s.sex_type = 1
   s.facebook_url = ""
   s.instagram_url = ""
@@ -111,6 +119,7 @@ Photographer.seed do |s|
   s.email = 'p9@p9'
   s.password = 'p9p9p9'
   s.name = 'テスト五郎'
+  s.main_camera = 'Canon'
   s.sex_type = 0
   s.facebook_url = ""
   s.instagram_url = ""
@@ -124,6 +133,7 @@ Photographer.seed do |s|
   s.email = 'p10@p10'
   s.password = 'p10p10p10'
   s.name = 'テスト伍子'
+  s.main_camera = 'Nicon'
   s.sex_type = 1
   s.facebook_url = ""
   s.instagram_url = ""
