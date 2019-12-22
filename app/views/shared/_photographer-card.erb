@@ -16,9 +16,9 @@
                             <div class="card-title mb-1 mr-2 text-nowrap text-truncate">
                                 <h4 class="text-dark kosugi"><%= photographer.name %></h4>
                             </div>
-                            <div>
+                            <div class="text-truncate">
                                 <% photographer.activity_area.each do |area| %>
-                                    <p class="text-black-50 d-inline-block kosugi mb-1 text-truncate"><%= "#{area.name}," %></p>
+                                    <p class="text-black-50 d-inline-block kosugi mb-1 text-truncate"><%= "#{area.name}/" %></p>
                                 <% end %>
                             </div>
                             <%# <div class>

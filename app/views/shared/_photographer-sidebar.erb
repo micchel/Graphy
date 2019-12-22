@@ -1,48 +1,46 @@
-<nav class="navbar navbar-sidebar navbar-expand-lg navbar-light overflow-auto bg-white d-flex flex-lg-column justify-content-lg-start align-items-lg-start px-lg-0 border-sub" style="z-index: 1030">
-    <div class="my-avator overflow-hidden rounded-circle ml-2">
-        <%= image_tag current_photographer.avatar.url, class: "h-100 w-100 img-fluid object-cover" %>
+<nav class="navbar navbar-sidebar navbar-expand-lg navbar-light d-flex flex-lg-column justify-content-lg-start align-items-lg-start px-lg-0 border-sub" style="z-index: 1030">
+    <div class="sidebar-avatar">
+        <%= image_tag current_photographer.avatar.url %>
     </div>
 
-    <div class="mb-lg-2">
-        <h1 class="modak d-block d-lg-none text-sub">Graphy</h1>
-    </div>
+    <h1 class="sidebar-logo sub-logo d-block d-lg-none">Graphy</h1>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsMenu"
             aria-controls="navbarsMenu" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse h-75 w-100" id="navbarsMenu">
-        <ul class="navbar-nav flex-lg-column h-100 w-100 kosugi">
-            <li class="nav-item w-100 py-lg-3 border">
+    <div class="collapse navbar-collapse" id="navbarsMenu">
+        <ul class="navbar-nav flex-lg-column">
+            <li class="nav-item py-lg-3 border">
                 <%= link_to new_portfolio_path, class:"nav-link" do %>
-                    <h4 class="kosugi"><i class="fas fa-camera"></i> ポートフォリオ登録</h4>
+                    <h4><i class="fas fa-camera"></i> ポートフォリオ登録</h4>
                 <% end %>
             </li>
-            <li class="nav-item w-100 py-lg-3 border">
+            <li class="nav-item py-lg-3 border">
                 <%= link_to edit_photographer_registration_path, class:"nav-link" do %>
-                    <h4 class="kosugi"><i class="fas fa-cog"></i> プロフィール編集</h4>
+                    <h4><i class="fas fa-cog"></i> プロフィール編集</h4>
                 <% end %>
             </li>
-            <li class="nav-item w-100 py-lg-3 border">
+            <li class="nav-item py-lg-3 border">
                 <%= link_to photographer_chat_rooms_path, class:"nav-link" do %>
-                    <h4 class="kosugi"><i class="fas fa-comments"></i> チャット一覧</h4>
+                    <h4><i class="fas fa-comments"></i> チャット一覧</h4>
                 <% end %>
             </li>
-            <li class="nav-item w-100 py-lg-3 border">
+            <!-- <li class="nav-item py-lg-3 border">
                 <%= link_to photographer_path(1), class:"nav-link" do %>
-                    <h4 class="kosugi"><i class="fas fa-tasks"></i> 依頼管理</h4>
+                    <h4><i class="fas fa-tasks"></i> 依頼管理</h4>
                 <% end %>
-            </li>
-            <li class="nav-item w-100 py-lg-3 border">
+            </li> -->
+            <li class="nav-item py-lg-3 border">
                 <%= link_to destroy_photographer_session_path, data: {confirm: "本当にログアウトしますか？"}, class:"nav-link" do %>
-                    <h4 class="kosugi"><i class="fas fa-door-open"></i> ログアウト</h4>
+                    <h4><i class="fas fa-door-open"></i> ログアウト</h4>
                 <% end %>
             </li>
         </ul>
     </div>
 
     <div>
-        <h1 class="modak d-none d-lg-block pl-lg-2 text-sub">Graphy</h1>
+        <h1 class="idebar-logo sub-logo d-none d-lg-block pl-lg-2">Graphy</h1>
     </div>
 </nav>

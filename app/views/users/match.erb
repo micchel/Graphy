@@ -1,15 +1,14 @@
-<div class="container-fluid px-0">
-    <div class="row">
-        <div class="col-lg-3 pr-lg-0">
+<div class="graphy-container container-fluid">
+    <div class="graphy-row row">
+        <div class="sidebar-container col-lg-3">
             <%= render 'shared/user-sidebar' %>
         </div>
-
-        <div class="main-content col-lg-9 pl-lg-0 bg-light overflow-auto vh-100">
-            <header class="w-100 bg-white text-center py-2 mb-4 border-bottom-main">
-                <h3 class="text-dark kosugi header-text mb-0"><i class="fas fa-handshake pr-1"></i>好みの写真を選びましょう！</h3>
+        <div class="main-content col-lg-9 bg-light">
+            <header class="main-header border-bottom-main">
+                <h3 class="main-header__text"><i class="fas fa-handshake pr-1"></i>好みの写真を選びましょう！</h3>
             </header>
 
-            <%= form_tag search_users_path, method: "get", class:"w-100 d-flex justify-content-center mb-2 position-relative" do %>
+            <%= form_tag search_users_path, method: "get", class:"category-form" do %>
                 <i class="fas fa-chevron-down arrow-btn"></i>
                 <%= select_tag :category,
                     options_from_collection_for_select(Category.all, :id, :name),
@@ -18,11 +17,11 @@
                         class: "category-select"
                     }
                 %>
-                <%= submit_tag "更新", class: "category-search btn-main text-white rounded" %>
+                <%= submit_tag "更新", class: "category-search" %>
             <% end %>
             <% if @portfolios.length == 0 %>
-                <div class="no-category d-flex border justify-content-center align-items-center bg-white">
-                    <h2 class="kosugi text-dark">カテゴリーを選択してください</h2>
+                <div class="no-category border">
+                    <h2>カテゴリーを選択してください</h2>
                 </div>
             <% else %>
                 <div id="tinderslide">
@@ -35,7 +34,7 @@
                                 <div class="dislike"><%= image_pack_tag 'images/nope.png'%></div>
                             </li>
                         <% end %>
-                        <div class="no-portfolio kosugi border">
+                        <div class="no-portfolio">
                             <h2>まだ選んでいない作品はありません</h2>
                         </div>
                     </ul>
