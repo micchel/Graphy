@@ -1,0 +1,32 @@
+<div class="graphy-container container-fluid">
+    <div class="graphy-row row">
+        <div class="sidebar-container col-lg-3">
+            <%= render 'shared/user-sidebar' %>
+        </div>
+        <div class="main-content col-lg-9 bg-light">
+            <div class="chat-page">
+                <header>
+                    <%= link_to "", user_chat_rooms_path, class: "link-matching" %>
+                    <div class="chat-partner">
+                        <%= link_to photographer_path(@photographer), class:"d-inline-block" do %>
+                            <div class="chat-partner_img">
+                                <%= image_tag @photographer.avatar.url %>
+                            </div>
+                        <% end %>
+                        <div>
+                            <h5 class="chat-partner_name"><%= @photographer.name %></h5>
+                        </div>
+                    </div>
+                </header>
+                <div class="messages-area messages">
+                    <%= render partial: "shared/chat_message", collection: @chat_messages, as: "chat_message" %>
+                </div>
+                <div class="message-input-form row" data-behavior="room_speaker">
+                    <input type="text" name="dummy" style="display:none;">
+                    <textarea class="message-input-form_input col-10" id="message_input" rows="10" cols="13" placeholder="メッセージを入力..."></textarea>
+                    <button type="button" class="message-input-form_submit col-2" id="message_submit"><i class="fas fa-arrow-alt-circle-up"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

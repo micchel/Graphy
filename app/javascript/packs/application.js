@@ -21,5 +21,6 @@ import '../src/js/jquery.jTinder.js';
 import '../src/js/jquery.transform2d.js';
 import '../src/js/jTinder-slide.js';
 
-var Rails = require('rails-ujs')
-Rails.start()
+require("channels");
+
+require("@rails/ujs").start()

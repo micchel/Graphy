@@ -7,6 +7,8 @@
 
     <%= javascript_pack_tag 'application' %>
     <%= stylesheet_pack_tag 'application' %>
+    <meta name="current_user_id" content="<%= current_user.present? ? current_user.id : 0 %>">
+    <meta name="current_photographer_id" content="<%= current_photographer.present? ? current_photographer.id : 0 %>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Modak&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Kosugi&display=swap" rel="stylesheet">

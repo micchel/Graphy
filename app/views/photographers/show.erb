@@ -18,10 +18,10 @@
                             <div class="row">
                                 <dl class="col-sm-12 col-md-5 mb-1">
                                     <dt class="kosugi detail-text detail-title text-light bg-brown rounded px-1 text-center">メインカメラ</dt>
-                                    <dd class="kosugi detail-text text-center mt-1">Canon</dd>
+                                    <dd class="kosugi detail-text text-center mt-1"><%= @photographer.main_camera %></dd>
                                 </dl>
                                 <dl class="col-sm-12 col-md-7 mb-1">
-                                    <dt class="detail-text detail-title text-light bg-brown rounded px-1 text-center">SNS</dt>
+                                    <dt class="detail-text detail-title text-light bg-brown rounded px-1 text-center">SNSリンク</dt>
                                     <div class="d-flex justify-content-center mt-1">
                                         <dd class="mr-1">
                                             <%= link_to "" , class: "facebook d-flex p-1 text-white text-center my-0 mx-auto rounded d-inline-block text-decoration-none" do %>
@@ -49,7 +49,7 @@
                             <div class="row">
                                 <dl class="col-12">
                                     <dt class="kosugi detail-text detail-title text-light bg-brown rounded px-1 text-center">対応地域</dt>
-                                    <dd class="kosugi detail-text text-center mt-1">
+                                    <dd class="kosugi detail-text mt-1">
                                         <% @photographer.activity_area.each do |area| %>
                                             <p class="text-black d-inline-block kosugi mb-1"><%= "#{area.name}/" %></p>
                                         <% end %>
@@ -95,8 +95,15 @@
                         <h1 class="kosugi align-bottom font-weight-bold inline-block ml-2"><%= number_to_currency(@photographer.price) %></h1>
                     </div>
                     <div class="col-lg-6">
-                        <%= link_to "/",class:"kosugi detail-text chat-button bg-brown d-block my-3 text-light text-center" do %>
-                            依頼のためにチャット画面に進む
+                        <% if current_user.have_chatroom?(@photographer) %>
+                            <%= link_to user_chat_room_path(@chatroom),class:"kosugi detail-text chat-button bg-brown w-100 d-block my-3 text-light text-center" do %>
+                                チャット画面に移動
+                            <% end %>
+                        <% else %>
+                            <%= form_tag '/user_chat_rooms', method: :post do %>
+                                <input name="photographer_id" type="hidden" value="<%= @photographer.id %>" />
+                                <%= submit_tag '依頼用のチャットを開く', class: "kosugi detail-text chat-button btn-main w-100 d-block my-3 text-light text-center" %>
+                            <% end %>
                         <% end %>
                     </div>
                 </div>

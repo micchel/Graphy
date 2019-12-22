@@ -23,7 +23,7 @@ Rails.application.routes.draw do
     end
   end
   resources :portfolios, only: [:new, :create, :edit, :update, :destroy]
-  resources :photographer_chat_rooms, only: :index
-  resources :user_chat_rooms, only: :index
+  resources :photographer_chat_rooms, only: [:index, :show]
+  resources :user_chat_rooms, only: [:index, :show, :create]
   resources :reactions, only: :create
 end

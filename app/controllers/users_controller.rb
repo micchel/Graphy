@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   end
 
   def search
-    searched_portfolios = Portfolio.where(category_id: category_params[:category])
+    searched_portfolios = Portfolio.where(category_id: category_params[:category]).includes(:photographer)
     @portfolios = searched_portfolios.order("RAND()").select {
       |portfolio| portfolio.not_matched?(current_user)
     }
