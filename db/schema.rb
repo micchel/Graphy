@@ -10,7 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_11_184551) do
+ActiveRecord::Schema.define(version: 2019_12_16_110310) do
+
+  create_table "chat_messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "photographer_id", null: false
+    t.bigint "chatroom_id", null: false
+    t.string "message", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["chatroom_id"], name: "index_chat_messages_on_chatroom_id"
+  end
+
+  create_table "chatrooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "photographer_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["photographer_id"], name: "index_chatrooms_on_photographer_id"
+    t.index ["user_id"], name: "index_chatrooms_on_user_id"
+  end
 
   create_table "photographer_prefectures", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "photographer_id", null: false
@@ -25,6 +44,7 @@ ActiveRecord::Schema.define(version: 2019_12_11_184551) do
     t.string "name", null: false
     t.string "email", null: false
     t.string "encrypted_password", null: false
+    t.string "main_camera", null: false
     t.integer "sex_type", null: false
     t.string "facebook_url"
     t.string "instagram_url"
@@ -81,6 +101,9 @@ ActiveRecord::Schema.define(version: 2019_12_11_184551) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "chat_messages", "chatrooms"
+  add_foreign_key "chatrooms", "photographers"
+  add_foreign_key "chatrooms", "users"
   add_foreign_key "photographer_prefectures", "photographers"
   add_foreign_key "photographer_prefectures", "prefectures"
   add_foreign_key "portfolios", "photographers"

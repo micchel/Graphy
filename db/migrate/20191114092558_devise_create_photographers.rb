@@ -7,6 +7,7 @@ class DeviseCreatePhotographers < ActiveRecord::Migration[5.2]
       t.string :name,               null: false
       t.string :email,              null: false, unique: true
       t.string :encrypted_password, null: false
+      t.string :main_camera,        null: false
       t.integer :sex_type,          null: false
       t.string :facebook_url,       unique: true
       t.string :instagram_url,      unique: true
