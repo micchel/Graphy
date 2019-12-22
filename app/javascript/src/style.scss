@@ -1,18 +1,57 @@
-.body {
+body {
   height: 100%;
+  width: 100%;
   padding: 0;
   margin: 0;
-  position: relative;
   font-family: 'Kosugi', sans-serif;
+  position: relative;
+  .graphy-container {
+    height: 100%;
+    padding: 0;
+    .graphy-row {
+      height: 100%;
+      margin: 0;
+      .sidebar-container {
+        padding: 0;
+      }
+      .main-content {
+        height: 100%;
+        width: 100%;
+        padding: 0;
+        .main-header {
+          width: 100%;
+          background: white;
+          text-align: center;
+          padding: .5rem 0 .5rem 0;
+          margin-bottom: 1.5rem;
+          &__text {
+            color: #343a40;
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+  }
 }
+
+.border-main {
+  border: .2rem solid $main-color;
+}
+.border-sub {
+  border: .2rem solid $sub-color;
+}
+.border-bottom-main {
+  border-bottom: .2rem solid $main-color;
+}
+.border-bottom-sub {
+  border-bottom: .2rem solid $sub-color;
+}
+
 .object-cover {
   object-fit: cover;
 }
 .object-contain {
   object-fit: contain;
-}
-.main-content {
-  height: 100vh;
 }
 .mw-100 {
   max-width: 100%;
@@ -21,12 +60,8 @@
   max-width: 50%;
 }
 
-
 .modak {
   font-family: 'Modak', cursive;
-}
-.kosugi {
-  font-family: 'Kosugi', sans-serif;
 }
 
 .bg-main {
@@ -61,18 +96,6 @@
   text-shadow: 1px 1px 2px black;
 }
 
-.border-main {
-  border: .2rem solid $main-color;
-}
-.border-bottom-main {
-  border-bottom: .2rem solid $main-color;
-}
-.border-sub {
-  border: .2rem solid $sub-color;
-}
-.border-bottom-sub {
-  border-bottom: .2rem solid $sub-color;
-}
 
 .button-link {
   opacity: 0.5;
@@ -104,10 +127,7 @@
   height: 3rem;
   width: 3rem;
 }
-.chat-avator {
-  height: 4rem;
-  width: 4rem;
-}
+
 .detail-avator {
   height: 10rem;
   width: 10rem;
@@ -115,11 +135,6 @@
 .photographer-link:hover {
   text-decoration: none;
   border: 3px solid $main-color;
-}
-
-.chat-number {
-  height: 3rem;
-  width: 3rem;
 }
 
 .twitter {
@@ -176,6 +191,12 @@
   }
 }
 @media (max-width: 576px) {
+  .main-content {
+    height: 90vh;
+    width: 100%;
+    padding: 0;
+  }
+
   .header-text {
     font-size: 150%;
   }

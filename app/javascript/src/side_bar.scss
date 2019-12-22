@@ -1,5 +1,40 @@
 .navbar-sidebar {
   height: 100vh;
+  background: white;
+  padding-right: 0;
+  padding-left: 0;
+  .sidebar-avatar {
+    height: 5rem;
+    width: 5rem;
+    overflow: hidden;
+    border-radius: 50%;
+    margin: 0 0 .5rem .5rem;
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+  .sidebar-logo {
+    font-family: 'Modak', cursive;
+  }
+  .main-logo {
+    color: $main-color;
+  }
+  .sub-logo {
+    color: $sub-color;
+  }
+  .navbar-collapse {
+    height: 75%;
+    width: 100%;
+    .navbar-nav {
+      height: 100%;
+      width: 100%;
+      .nav-item {
+        width: 100%;
+      }
+    }
+  }
 }
 
 /*---Media Queries --*/
@@ -11,16 +46,29 @@
 
 @media (max-width: 768px) {
   .navbar-sidebar {
-    height: 100%;
+    height: 8vh;
+    .sidebar-avatar {
+      height: 3.5rem;
+      width: 3.5rem;
+    }
+    .navbar-toggler {
+      margin-right: .5rem;
+    }
   }
 }
 
 @media (max-width: 576px) {
-  .nav-link h4 {
-    font-size: 100%;
-  }
-
   .navbar-sidebar {
-    height: 100%;
+    height: 10vh;
+    .sidebar-avatar {
+      height: 3.5rem;
+      width: 3.5rem;
+    }
+    .navbar-toggler {
+      margin-right: .2rem;
+    }
+    .nav-link h4 {
+      font-size: 100%;
+    }
   }
 }
