@@ -1,26 +1,26 @@
 <div class="container devise-form">
     <header class="kosugi brand-link p-2 text-center position-relative">
-        <%= link_to root_path do %>
+        <%= link_to root_path, class:"text-decoration-none" do %>
             <h1 class="modak text-sub">Graphy</h1>
         <% end %>
         <h4 class="kosugi text-dark mt-3">フォトグラファーログイン</h4>
     </header>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "mt-2"}) do |f| %>
-        <div class="kosugi form-group">
+        <div class="form-group">
             <%= f.label :email do %>
                 <p class="d-inline-block kosugi mb-0">メールアドレス</p>
             <% end %>
             <%= f.email_field :email, autofocus: true, class: "form-control", autocomplete: "email", placeholder: "メールアドレスを入力してください" %>
         </div>
 
-        <div class="kosugi form-group">
+        <div class="form-group">
             <%= f.label :password do %>
                 <p class="d-inline-block kosugi mb-0">パスワード</p>
             <% end %>
             <%= f.password_field :password, class: "form-control", autocomplete: "off", placeholder: "パスワードを入力してください" %>
         </div>
 
-        <div class="kosugi form-group text-center">
+        <div class="form-group text-center">
             <%= f.submit "ログインする", class: "submit-btn p-2 w-50 rounded btn-sub text-white w-50 mt-3" %>
             <!-- <%= render "photographers/shared/links" %> -->
         </div>

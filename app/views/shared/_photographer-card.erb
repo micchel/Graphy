@@ -1,24 +1,24 @@
-<div class="col-md-6 col-lg-4 my-1">
-    <%= link_to photographer_path(photographer.id), class:"d-block photographer-link" do %>
+<div class="photographer-card col-md-6 col-lg-4">
+    <%= link_to photographer_path(photographer.id), class:"photographer-link" do %>
         <div class="card">
-            <div class="opponent-portfolio px-0 overflow-hidden rounded-top">
-                <%= image_tag photographer.portfolios.first.image.url, class:"img-fluid object-cover" %>
+            <div class="opponent-portfolio">
+                <%= image_tag photographer.portfolios.first.image.url, class:"opponent-portfolio__img" %>
             </div>
-            <div class="card-body px-0 py-2">
+            <div class="card-body">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-3">
-                            <div class="oponent-avator overflow-hidden rounded-circle">
-                                <%= image_tag photographer.avatar.url , class:"h-100 w-100 img-fluid object-cover"%>
+                            <div class="opponent-avator">
+                                <%= image_tag photographer.avatar.url %>
                             </div>
                         </div>
                         <div class="col-9 px-0">
-                            <div class="card-title mb-1 mr-2 text-nowrap text-truncate">
-                                <h4 class="text-dark kosugi"><%= photographer.name %></h4>
+                            <div class="card-title">
+                                <h4 class="text-dark"><%= photographer.name %></h4>
                             </div>
-                            <div class="text-truncate">
+                            <div class="opponent-area text-truncate">
                                 <% photographer.activity_area.each do |area| %>
-                                    <p class="text-black-50 d-inline-block kosugi mb-1 text-truncate"><%= "#{area.name}/" %></p>
+                                    <p><%= "#{area.name}/" %></p>
                                 <% end %>
                             </div>
                             <%# <div class>

@@ -15,7 +15,7 @@ body {
         padding: 0;
       }
       .main-content {
-        height: 100%;
+        height: 100vh;
         width: 100%;
         padding: 0;
         .main-header {
@@ -112,94 +112,43 @@ body {
 .oponent-portfolio {
   height: 200px;
 }
-.portfolio-detail-board {
-  height: 225px;
-  width: 100%;
-  text-align: center;
-  flex-wrap: wrap;
-  .portfolio-detail-image {
-    height: 200px;
-    width: 100%;
-    object-fit:contain;
-  }
-}
-.oponent-avator {
-  height: 3rem;
-  width: 3rem;
-}
-
-.detail-avator {
-  height: 10rem;
-  width: 10rem;
-}
-.photographer-link:hover {
-  text-decoration: none;
-  border: 3px solid $main-color;
-}
-
-.twitter {
-  max-width:300px;
-  background-color:#00aced;
-  font-size:1.8em;
-}
-.instagram {
-  font-family:'Pacifico', cursive;
-  line-height:1.5em;
-  max-width:300px;
-  background-image:radial-gradient(at 20% 120%,orange, #f15a4d 25%, #f13f79 55%, #9933ff 100%);
-}
-.facebook {
-  max-width:300px;
-  background-color: #305097;
-  font-size: 1.8rem;
-}
-
-.grapher-description {
-  line-height: 1.5;
-}
-.chat-button {
-  height: 60px;
-  line-height: 60px;
-  font-weight: 600;
-  font-size: 24px;
-}
-.chat-button:hover {
-  text-decoration: none;
-  opacity: 0.8;
-}
-
-.description-inner {
-  white-space: pre-wrap;
-}
 
 /*---Media Queries --*/
 @media (max-width: 992px) {
   
 }
 @media (max-width: 768px) {
-  .body {
-    padding-top: 90px;
-  }
-
-  .header-text {
-    font-size: 150%;
-  }
-
-  .my-avator {
-    height: 3rem;
-    width: 3rem;
+  body {
+    .graphy-container {
+      .graphy-row {
+        .main-content {
+          height: 92vh;
+          width: 100%;
+          padding: 0;
+        }
+      }
+    }
   }
 }
 @media (max-width: 576px) {
-  .main-content {
-    height: 90vh;
-    width: 100%;
-    padding: 0;
+  body {
+    .graphy-container {
+      .graphy-row {
+        .main-content {
+          height: 90vh;
+          width: 100%;
+          padding: 0;
+          .main-header {
+            margin-bottom: 1rem;
+            &__text {
+              font-size: 150%;
+            }
+          }
+        }
+      }
+    }
   }
-
-  .header-text {
-    font-size: 150%;
-  }
+  
 
   .chat-name {
     font-size: 110%;
@@ -214,9 +163,6 @@ body {
   }
   .detail-title {
     width: 100%
-  }
-  .jenre-text {
-    font-size: 80%;
   }
   .grapher-name {
     text-align: center;
