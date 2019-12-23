@@ -1,12 +1,12 @@
-<div class="container-fluid px-0">
-    <div class="row">
-        <div class="col-lg-3 pr-lg-0" >
+<div class="graphy-container container-fluid">
+    <div class="graphy-row row">
+        <div class="sidebar-container col-lg-3" >
             <%= render 'shared/photographer-sidebar' %>
         </div>
 
-        <div class="col-lg-9 pl-lg-0 bg-light overflow-auto">
-            <header class="w-100 bg-white text-center py-2 border-bottom-sub">
-                <h3 class="text-dark kosugi header-text mb-0"><i class="fas fa-comments pr-1"></i>チャット一覧</h3>
+        <div class="main-content col-lg-9 bg-light overflow-auto">
+            <header class="main-header border-bottom-sub">
+                <h3 class="main-header__text"><i class="fas fa-comments pr-1"></i>チャット一覧</h3>
             </header>
             <div class="container">
                 <div class="mt-3">
@@ -22,11 +22,11 @@
                                             <%= image_tag chatroom.user.avatar.url, class:"h-100 w-100 img-fluid object-cover"%>
                                         </div>
                                         <div class="overflow-hidden">
-                                            <h4 class="kosugi chat-name"><%= chatroom.user.name %></h4>
+                                            <h4 class="chat-name"><%= chatroom.user.name %></h4>
                                         </div>
                                     </div>
                                     <div class="chat-number d-flex align-items-end bg-danger justify-content-center text-white rounded-circle">
-                                        <h4 class="kosugi inline-block">100</h4>
+                                        <h4 class="inline-block">100</h4>
                                     </div>
                                 </div>
                             <% end %>

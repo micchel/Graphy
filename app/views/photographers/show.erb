@@ -1,57 +1,57 @@
-<div class="container-fluid px-0">
-    <div class="row">
-        <div class="col-lg-3 pr-lg-0">
+<div class="graphy-container container-fluid">
+    <div class="graphy-row row">
+        <div class="sidebar-container col-lg-3">
             <%= render 'shared/user-sidebar' %>
         </div>
 
-        <div class="col-lg-9 bg-light overflow-auto vh-100 px-5">
-            <div class="container pt-3 mx-auto">
-                <div class="row">
+        <div class="main-content col-lg-9 bg-light overflow-auto">
+            <div class="detail-container container">
+                <div class="info-row row">
                     <div class="col-sm-12 col-md-3">
-                        <div class="overflow-hidden detail-avator mx-auto">
-                            <%= image_tag @photographer.avatar.url, class:"object-cover h-100 w-100 img-fluid img-thumbnail rounded-circle" %>
+                        <div class="detail-avatar">
+                            <%= image_tag @photographer.avatar.url, class:"img-thumbnail" %>
                         </div>
                     </div>
-                    <div class="col-sm-12 col-md-9">
-                        <h2 class="kosugi grapher-name detail-text text-md-left"><%= @photographer.name %></h2>
-                        <div class="container-fluid px-0">
+                    <div class="photographer-info col-sm-12 col-md-9">
+                        <h2 class="photographer-name detail-text text-md-left"><%= @photographer.name %></h2>
+                        <div class="info-container container-fluid">
                             <div class="row">
                                 <dl class="col-sm-12 col-md-5 mb-1">
-                                    <dt class="kosugi detail-text detail-title text-light bg-brown rounded px-1 text-center">メインカメラ</dt>
-                                    <dd class="kosugi detail-text text-center mt-1"><%= @photographer.main_camera %></dd>
+                                    <dt class="detail-text detail-title">メインカメラ</dt>
+                                    <dd class="detail-text detail-info"><%= @photographer.main_camera %></dd>
                                 </dl>
                                 <dl class="col-sm-12 col-md-7 mb-1">
-                                    <dt class="detail-text detail-title text-light bg-brown rounded px-1 text-center">SNSリンク</dt>
-                                    <div class="d-flex justify-content-center mt-1">
+                                    <dt class="detail-text detail-title">SNSリンク</dt>
+                                    <div class="sns-container">
                                         <dd class="mr-1">
-                                            <%= link_to "" , class: "facebook d-flex p-1 text-white text-center my-0 mx-auto rounded d-inline-block text-decoration-none" do %>
+                                            <%= link_to "" , class: "facebook sns-link" do %>
                                                 <i class="fab fa-facebook"></i>
-                                                <h5 class="text-light d-none d-md-block">facebook</h5>
+                                                <h5 class="text-light d-none d-lg-block">facebook</h5>
                                             <% end %>
                                         </dd>
                                         <dd class="mr-1">
-                                            <%= link_to "" , class: "instagram d-flex p-1 text-white text-center my-0 mx-auto rounded d-inline-block text-decoration-none" do %>
+                                            <%= link_to "" , class: "instagram sns-link" do %>
                                                 <i class="fab fa-2x fa-instagram"></i>
-                                                <h5 class="text-light d-none d-md-block">instagram</h5>
+                                                <h5 class="text-light d-none d-lg-block">instagram</h5>
                                             <% end %>
                                         </dd>
                                         <dd>
-                                            <%= link_to "", class: "twitter d-flex p-1 font-weight-bold text-white text-center my-0 mx-auto rounded d-inline-block text-decoration-none" do %>
+                                            <%= link_to "", class: "twitter sns-link font-weight-bold" do %>
                                                 <i class="fab fa-twitter"></i>
-                                                <h5 class="text-light d-none d-md-block">twitter</h5>
+                                                <h5 class="text-light d-none d-lg-block">twitter</h5>
                                             <% end %>
                                         </dd>
                                     </div>
                                 </dl>
                             </div>
                         </div>
-                        <div class="container-fluid px-0">
+                        <div class="info-container container-fluid">
                             <div class="row">
                                 <dl class="col-12">
-                                    <dt class="kosugi detail-text detail-title text-light bg-brown rounded px-1 text-center">対応地域</dt>
-                                    <dd class="kosugi detail-text mt-1">
+                                    <dt class="detail-text detail-title">対応地域</dt>
+                                    <dd class="detail-text mt-1 d-flex">
                                         <% @photographer.activity_area.each do |area| %>
-                                            <p class="text-black d-inline-block kosugi mb-1"><%= "#{area.name}/" %></p>
+                                            <p class="area-text"><%= "#{area.name}/" %></p>
                                         <% end %>
                                     </dd>
                                 </dl>
@@ -61,48 +61,49 @@
                 </div>
             </div>
 
-            <div class="container-fluid">
-                <div class="d-flex justify-content-between mb-1">
+            <div class="detail-container container-fluid mt-0">
+                <div class="detail-section-title">
                     <div class="p-1">
-                        <h5 class="kosugi detail-text font-weight-bold mb-0">ポートフォリオ</h5>
+                        <h5 class="detail-section-title__text">ポートフォリオ</h5>
                     </div>
                     <%# <div class="btn-sub p-1 rounded">
                         <h5 class="kosugi detail-text text-light mb-0"><i class="fas fa-expand-arrows-alt"></i>もっと作品をみる</h5>
                     </div> %>
                 </div>
-                <div class="row">
+                <div class="detail-row row">
                     <% @portfolios.each do |portfolio| %>
-                        <div class="col-6 col-md-4 mb-2">
-                            <div class="portfolio-detail-board px-0">
+                        <div class="col-6 col-md-4 mb-3">
+                            <div class="portfolio-detail-board">
                                 <%= image_tag portfolio.image.url, class:"portfolio-detail-image img-thumbnail"%>
-                                <p class="kosugi jenre-text bg-brown text-light rounded-bottom">ジャンル:<span class="ml-1"><%= portfolio.category.name %></span></p>
+                                <p class="category-text">ジャンル:<span class="ml-1"><%= portfolio.category.name %></span></p>
                             </div>
                         </div>
                     <% end %>
                 </div>
             </div>
             
-            <div class="container-fluid mt-2">
-                <h5 class="kosugi font-weight-bold">自己紹介</h5>
-                <div class="grapher-description pt-1 bg-white py-3 border">
-                    <p class="description-inner font-weight-light"><%= @photographer.self_introduction %></p>
+            <div class="detail-container container-fluid">
+                <h5 class="font-weight-bold">自己紹介</h5>
+                <div class="photographer-description border">
+                    <p class="photographer-description__text"><%= @photographer.self_introduction %></p>
                 </div>
             </div>
-            <div class="container">
+
+            <div class="detail-container container">
                 <div class="row">
-                    <div class="col-lg-6 text-center p-3 d-flex justify-content-center">
-                        <h3 class="kosugi align-bottom inline-block mt-2">依頼費用:</h1>
-                        <h1 class="kosugi align-bottom font-weight-bold inline-block ml-2"><%= number_to_currency(@photographer.price) %></h1>
+                    <div class="detail-price col-lg-6">
+                        <h3 class="detail-price__title">依頼費用:</h1>
+                        <h1 class="detail-price__text"><%= number_to_currency(@photographer.price) %></h1>
                     </div>
                     <div class="col-lg-6">
                         <% if current_user.have_chatroom?(@photographer) %>
-                            <%= link_to user_chat_room_path(@chatroom),class:"kosugi detail-text chat-button bg-brown w-100 d-block my-3 text-light text-center" do %>
+                            <%= link_to user_chat_room_path(@chatroom),class:"detail-text chat-link-button" do %>
                                 チャット画面に移動
                             <% end %>
                         <% else %>
                             <%= form_tag '/user_chat_rooms', method: :post do %>
                                 <input name="photographer_id" type="hidden" value="<%= @photographer.id %>" />
-                                <%= submit_tag '依頼用のチャットを開く', class: "kosugi detail-text chat-button btn-main w-100 d-block my-3 text-light text-center" %>
+                                <%= submit_tag '依頼用のチャットを開く', class: "detail-text chat-link-button" %>
                             <% end %>
                         <% end %>
                     </div>

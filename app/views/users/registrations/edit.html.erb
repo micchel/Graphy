@@ -1,16 +1,16 @@
 <div class="container devise-form">
-    <header class="kosugi brand-link p-2 text-center position-relative">
+    <header class="brand-link p-2 text-center position-relative">
         <%= link_to match_users_path , class:"brand-link text-main d-inline-block w-50" do %>
             <h1 class="modak text-main">Graphy</h1>
         <% end %>
-        <h4 class="kosugi text-dark mt-3 font-weight-bold">ユーザー情報を変更</h5>
+        <h4 class="text-dark mt-3 mb-0 font-weight-bold">ユーザー情報を変更</h5>
     </header>
     <div class="container">
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: "my-3" }) do |f| %>
             <%= render "devise/shared/error_messages", resource: resource %>
 
-            <p class="d-inline-block kosugi mb-0">アバター画像</p>
-            <p class="d-inline-block bg-main text-white p-1 mb-0 rounded kosugi">必須</p>
+            <p class="d-inline-block mb-0">アバター画像</p>
+            <p class="d-inline-block bg-main text-white px-1 mb-0 rounded">必須</p>
             <p class="d-block kosugi mb-1">(※ご本人の顔がわかる写真を掲載してください)</p>
             <div class="d-flex">
                 <%= f.label :avatar, class:"registration-avatar rounded position-relative mt-0 mb-3 bg-main d-flex align-items-center justify-content-center", style:"height:100px; width:100px;" do %>
@@ -26,16 +26,16 @@
 
             <div class="form-group">
                 <%= f.label :name do %>
-                    <p class="d-inline-block kosugi mb-0 d-none text-center">ユーザー名</p>
-                    <p class="d-inline-block bg-main text-white p-1 mb-0 rounded kosugi">必須</p>
+                    <p class="d-inline-block mb-0 d-none text-center">ユーザー名</p>
+                    <p class="d-inline-block bg-main text-white px-1 mb-0 rounded">必須</p>
                 <% end %>
                 <%= f.text_field :name, class: "form-control", placeholder: "名前を入力してください" %>
             </div>
 
             <div class="form-group">
                 <%= f.label :email do %>
-                    <p class="d-inline-block kosugi mb-0">メールアドレス</p>
-                    <p class="d-inline-block bg-main text-white p-1 mb-0 rounded kosugi">必須</p>
+                    <p class="d-inline-block mb-0">メールアドレス</p>
+                    <p class="d-inline-block bg-main text-white px-1 mb-0 rounded">必須</p>
                 <% end %>
                 <%= f.email_field :email, class: "form-control", placeholder: "メールアドレスを入力してください", autofocus: true, autocomplete: "email" %>
             </div>
@@ -46,19 +46,19 @@
 
             <div class="form-group">
                 <%= f.label :password do %>
-                    <p class="d-inline-block kosugi mb-0">パスワード</p>
-                    <p class="d-inline-block bg-main text-white p-1 mb-0 rounded kosugi">必須</p>
+                    <p class="d-inline-block mb-0">パスワード</p>
+                    <p class="d-inline-block bg-main text-white px-1 mb-0 rounded">必須</p>
                 <% end %>
                 <% if @minimum_password_length %>
-                    <em class="kosugi">(<%= @minimum_password_length %>文字以上入力してください)</em>
-                <% end %><br />
+                    <p class="mb-0">(<%= @minimum_password_length %>文字以上入力してください)</p>
+                <% end %>
                 <%= f.password_field :password, class: "form-control", placeholder: "パスワードを入力してください", autocomplete: "new-password" %>
             </div>
 
             <div class="form-group">
                 <%= f.label :password_confirmation do %>
-                    <p class="d-inline-block kosugi mb-0">確認用パスワード</p>
-                    <p class="d-inline-block bg-main text-white p-1 mb-0 rounded kosugi">必須</p>
+                    <p class="d-inline-block mb-0">確認用パスワード</p>
+                    <p class="d-inline-block bg-main text-white px-1 mb-0 rounded">必須</p>
                 <% end %>
                 <%= f.password_field :password_confirmation, class: "form-control", placeholder: "パスワードを再度入力してください", autocomplete: "new-password" %>
             </div>
@@ -66,8 +66,8 @@
             <div class="form-group">
                 <div>
                     <%= f.label :sex_type do %>
-                        <p class="d-inline-block kosugi mb-0">性別</p>
-                        <p class="d-inline-block bg-main text-white p-1 mb-0 rounded kosugi">必須</p>
+                        <p class="d-inline-block mb-0">性別</p>
+                        <p class="d-inline-block bg-main text-white px-1 mb-0 rounded">必須</p>
                     <% end %>
                 </div>
                 <div class="form-check form-check-inline">
@@ -82,8 +82,8 @@
 
             <div class="form-group">
                 <%= f.label :prefecture_id do %>
-                    <p class="d-inline-block kosugi mb-0">居住エリア</p>
-                    <p class="d-inline-block bg-main text-white p-1 mb-0 rounded kosugi">必須</p>
+                    <p class="d-inline-block mb-0">居住エリア</p>
+                    <p class="d-inline-block bg-main text-white px-1 mb-0 rounded">必須</p>
                 <% end %>
                 <div class="position-relative">
                     <i class="fas fa-chevron-down select-arrow"></i>
@@ -93,7 +93,7 @@
 
             <div class="form-group">
                 <%= f.label :self_introduction do %>
-                    <p class="d-inline-block kosugi mb-0">自己紹介文(最大500文字)</p>
+                    <p class="d-inline-block mb-0">自己紹介文(最大500文字)</p>
                 <% end %>
                 <%= f.text_area :self_introduction, maxlength: "500", rows: "10", class: "form-control" %>
             </div>

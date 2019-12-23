@@ -1,0 +1,53 @@
+.photographer-card {
+  margin: .5rem 0;
+  .photographer-link {
+    display: block;
+    &:hover {
+      text-decoration: none;
+      border: 3px solid $main-color;
+    }
+    .card {
+      .opponent-portfolio {
+        padding-right: 0;
+        padding-left: 0;
+        border-top-left-radius: 0.25rem;
+        border-top-right-radius: 0.25rem;
+        &__img {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+      .card-body {
+        padding: .5rem 0;
+        .opponent-avator {
+          height: 3rem;
+          width: 3rem;
+          border-radius: 50%;
+          overflow: hidden;
+          img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+          }
+        }
+        .card-title {
+          margin-bottom: .25rem;
+          margin-right: .5rem;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+        .opponent-area {
+          p {
+            color: rgba(0, 0, 0, .5);
+            display: inline-block;
+            margin-bottom: .25rem;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+        }
+      }
+    }
+  }
+}
