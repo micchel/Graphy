@@ -18,6 +18,8 @@ body {
         height: 100vh;
         width: 100%;
         padding: 0;
+        background: #f8f9fa;
+        overflow: auto;
         .main-header {
           width: 100%;
           background: white;
@@ -141,17 +143,12 @@ body {
           .main-header {
             margin-bottom: 1rem;
             &__text {
-              font-size: 150%;
+              font-size: 120%;
             }
           }
         }
       }
     }
-  }
-  
-
-  .chat-name {
-    font-size: 110%;
   }
 
   .detail-avator {

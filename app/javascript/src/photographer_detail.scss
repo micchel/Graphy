@@ -1,5 +1,6 @@
 .detail-container {
   .info-row {
+    padding-top: .5rem;
     .detail-avatar {
       height: 10rem;
       width: 10rem;
@@ -13,6 +14,11 @@
       }
     }
     .photographer-info {
+      .photographer-name {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
       .info-container {
         padding-left: 0;
         padding-right: 0;
@@ -53,11 +59,17 @@
           }
         }
       }
-      .area-text {
-        color: #343a40;
-        display: inline-block;
-        margin: 0;
-        padding: 0;
+      .area-container {
+        display: flex;
+        margin-top: .25rem;
+        flex-wrap: wrap;
+        width: 100%;
+        .area-text {
+          color: #343a40;
+          display: inline-block;
+          margin: 0;
+          padding: 0;
+        }
       }
       .detail-title {
         color: #f8f9fa;
@@ -116,16 +128,15 @@
     padding: 1rem;
     display: flex;
     justify-content: center;
+    align-items: center;
     &__title {
       vertical-align: bottom;
       display: inline-block;
-      margin-top: .5rem;
     }
     &__text {
       vertical-align: bottom;
       display: inline-block;
       font-weight: bold;
-      margin-left: .5rem;
     }
   }
 
@@ -189,6 +200,14 @@
         .category-text {
           font-size: 80%;
         }
+      }
+    }
+    .detail-price {
+      h3 {
+        font-size: 150%;
+      }
+      h1 {
+        font-size: 170%;
       }
     }
   }

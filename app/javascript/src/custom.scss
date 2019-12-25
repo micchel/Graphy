@@ -1,3 +1,13 @@
 $main-color: #ff9400;
 $sub-color: #00ccbb;
 $navbar-sidebar-width: 300px;
+
+@keyframes flash {
+  0%,100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.3;
+  }
+}
