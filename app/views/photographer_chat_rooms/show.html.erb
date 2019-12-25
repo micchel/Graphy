@@ -8,12 +8,10 @@
                 <header>
                     <%= link_to "", photographer_chat_rooms_path, class: "link-matching" %>
                     <div class="chat-partner">
-                        <div class="chat-partner_img">
+                        <div class="chat-partner__img">
                             <%= image_tag @user.avatar.url %>
                         </div>
-                        <div>
-                            <h5 class="chat-partner_name"><%= @user.name %></h5>
-                        </div>
+                        <h5 class="chat-partner__name"><%= @user.name %></h5>
                     </div>
                 </header>
                 <div class="messages-area messages">
