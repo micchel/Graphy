@@ -13,43 +13,51 @@
                         </div>
                     </div>
                     <div class="photographer-info col-sm-12 col-md-9">
-                        <h2 class="photographer-name detail-text text-md-left"><%= @photographer.name %></h2>
+                        <h3 class="photographer-name detail-text text-md-left"><%= @photographer.name %></h3>
                         <div class="info-container container-fluid">
                             <div class="row">
                                 <dl class="col-sm-12 col-md-5 mb-1">
                                     <dt class="detail-text detail-title">メインカメラ</dt>
                                     <dd class="detail-text detail-info"><%= @photographer.main_camera %></dd>
                                 </dl>
-                                <dl class="col-sm-12 col-md-7 mb-1">
-                                    <dt class="detail-text detail-title">SNSリンク</dt>
-                                    <div class="sns-container">
-                                        <dd class="mr-1">
-                                            <%= link_to "" , class: "facebook sns-link" do %>
-                                                <i class="fab fa-facebook"></i>
-                                                <h5 class="text-light d-none d-lg-block">facebook</h5>
+                                <% if @photographer.facebook_url.present? || @photographer.instagram_url.present? || @photographer.twitter_url.present? %>
+                                    <dl class="col-sm-12 col-md-7 mb-1">
+                                        <dt class="detail-text detail-title">SNSリンク</dt>
+                                        <div class="sns-container">
+                                            <% if @photographer.facebook_url != "" %>
+                                                <dd class="mr-1">
+                                                    <%= link_to @photographer.facebook_url, class: "facebook sns-link" do %>
+                                                        <i class="fab fa-facebook"></i>
+                                                        <h5 class="text-light d-none d-lg-block">facebook</h5>
+                                                    <% end %>
+                                                </dd>
                                             <% end %>
-                                        </dd>
-                                        <dd class="mr-1">
-                                            <%= link_to "" , class: "instagram sns-link" do %>
-                                                <i class="fab fa-2x fa-instagram"></i>
-                                                <h5 class="text-light d-none d-lg-block">instagram</h5>
+                                            <% if @photographer.instagram_url != "" %>
+                                                <dd class="mr-1">
+                                                    <%= link_to @photographer.instagram_url, class: "instagram sns-link" do %>
+                                                        <i class="fab fa-2x fa-instagram"></i>
+                                                        <h5 class="text-light d-none d-lg-block">instagram</h5>
+                                                    <% end %>
+                                                </dd>
                                             <% end %>
-                                        </dd>
-                                        <dd>
-                                            <%= link_to "", class: "twitter sns-link font-weight-bold" do %>
-                                                <i class="fab fa-twitter"></i>
-                                                <h5 class="text-light d-none d-lg-block">twitter</h5>
+                                            <% if @photographer.twitter_url != "" %>
+                                                <dd>
+                                                    <%= link_to @photographer.twitter_url, class: "twitter sns-link font-weight-bold" do %>
+                                                        <i class="fab fa-twitter"></i>
+                                                        <h5 class="text-light d-none d-lg-block">twitter</h5>
+                                                    <% end %>
+                                                </dd>
                                             <% end %>
-                                        </dd>
-                                    </div>
-                                </dl>
+                                        </div>
+                                    </dl>
+                                <% end %>
                             </div>
                         </div>
                         <div class="info-container container-fluid">
                             <div class="row">
                                 <dl class="col-12">
                                     <dt class="detail-text detail-title">対応地域</dt>
-                                    <dd class="detail-text mt-1 d-flex">
+                                    <dd class="detail-text area-container">
                                         <% @photographer.activity_area.each do |area| %>
                                             <p class="area-text"><%= "#{area.name}/" %></p>
                                         <% end %>
@@ -91,7 +99,7 @@
 
             <div class="detail-container container">
                 <div class="row">
-                    <div class="detail-price col-lg-6">
+                    <div class="detail-price col-lg-6 my-1">
                         <h3 class="detail-price__title">依頼費用:</h1>
                         <h1 class="detail-price__text"><%= number_to_currency(@photographer.price) %></h1>
                     </div>

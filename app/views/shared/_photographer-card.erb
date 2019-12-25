@@ -2,7 +2,7 @@
     <%= link_to photographer_path(photographer.id), class:"photographer-link" do %>
         <div class="card">
             <div class="opponent-portfolio">
-                <%= image_tag photographer.portfolios.first.image.url, class:"opponent-portfolio__img" %>
+                <%= image_tag photographer.portfolios.last.image.url, class:"opponent-portfolio__img" %>
             </div>
             <div class="card-body">
                 <div class="container-fluid">
@@ -12,9 +12,9 @@
                                 <%= image_tag photographer.avatar.url %>
                             </div>
                         </div>
-                        <div class="col-9 px-0">
+                        <div class="col-9 pl-0">
                             <div class="card-title">
-                                <h4 class="text-dark"><%= photographer.name %></h4>
+                                <h5 class="text-dark"><%= photographer.name %></h5>
                             </div>
                             <div class="opponent-area text-truncate">
                                 <% photographer.activity_area.each do |area| %>

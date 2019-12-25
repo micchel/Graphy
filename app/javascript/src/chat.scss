@@ -1,18 +1,103 @@
-.chat-link {
-  text-decoration: none !important;;
-  .chat-avator {
-    height: 4rem;
-    width: 4rem;
+/* index */
+.chat-index {
+  margin-top: .5rem;
+  .chat-index-header {
+    text-align: center;
+    margin-bottom: .5rem;
+    &__text {
+      color: #343a40;
+    }
   }
-  .chat-name {
-    color: black;
+  .chat-index-container {
+    margin-top: .5rem;
+    padding: 0;
+    .chat-link {
+      text-decoration: none !important;
+      .chat-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: .5rem 0;
+        border-bottom: 1px solid #dee2e6;
+        .opponent-info {
+          display: flex;
+          align-items: center;
+          .opponent-avatar {
+            height: 4rem;
+            width: 4rem;
+            overflow: hidden;
+            border-radius: 50%;
+            margin-right: 1rem;
+            img {
+              height: 100%;
+              width: 100%;
+              object-fit: cover;
+            }
+          }
+          .opponent-name {
+            color: #343a40;
+            margin-bottom: .5rem;
+          }
+          .last-message {
+            color: #a9a9a9;
+            margin-bottom: .2rem;
+          }
+        }
+        .chat-count {
+          height: 3rem;
+          width: 3rem;
+          display: flex;
+          align-items: flex-end;
+          background: red;
+          justify-content: center;
+          color: white;
+          border-radius: 50%;
+        }
+      }
+    }
   }
-  .chat-number {
-    height: 3rem;
-    width: 3rem;
+  .no-content {
+    height: 70vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    .no-content-frame {
+      height: 100%;
+      width: 80%;
+      background: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      .link-description {
+        text-align: center;
+        h4 {
+          line-height: 35px;
+        }
+      }
+      .link-button {
+        min-height: 60px;
+        line-height: 50px;
+        font-weight: 600;
+        font-size: 24px;
+        background: #daa520;
+        display: block;
+        width: 70%;
+        padding: .5rem;
+        margin: 1rem 0;
+        color: #f8f9fa;
+        text-align: center;
+        animation: flash 2s linear infinite;
+        &:hover {
+          text-decoration: none;
+          opacity: 0.8;
+        }
+      }
+    }
   }
 }
 
+/* show */
 .chat-page {
   height: 100%;
   width: 100%;
@@ -36,15 +121,19 @@
       transform: rotate(45deg);
     }
     .chat-partner {
-      width: 25%;
+      width: 80%;
       display: flex;
       align-items: center;
-      &_name {
-        text-align: center;
-        font-weight: bold;
+      // overflow: hidden;
+      &__name {
+        width: calc(100% - 5rem);
+        display: inline-block;
         margin: 1rem 0 0 .5rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
-      &_img {
+      &__img {
         width: 5rem;
         height: 5rem;
         border-radius: 50%;
@@ -137,7 +226,29 @@
 @media (max-width: 992px) {
   
 }
+
 @media (max-width: 768px) {
+  /* index */
+  .chat-index {
+    .no-content {
+      .no-content-frame {
+        .link-description {
+          h4 {
+            font-size: 150%;
+            line-height: 40px;
+          }
+        }
+        .link-button {
+          width: 80%;
+          font-size: 150%;
+          line-height: 30px;
+          min-height: 30px;
+        }
+      }
+    }
+  }
+
+  /* show */
   .chat-page {
     header {
       height: 8vh;
@@ -151,11 +262,11 @@
       }
       .chat-partner {
         width: 75%;
-        &_img {
+        &__img {
           width: 3rem;
           height: 3rem;
         }
-        &_name {
+        &__name {
           margin: 0 0 0 .5rem;
         }
       }
@@ -193,8 +304,69 @@
     }
   }
 }
+
 @media (max-width: 576px) {
+  /* index */
+  .chat-index {
+    .chat-index-header {
+      &__text {
+        font-size: 110%;
+      }
+    }
+    .chat-index-container {
+      .chat-link {
+        .chat-content {
+          .opponent-info {
+            .opponent-avatar {
+              height: 3rem;
+              width: 3rem;
+              margin-right: .5rem;
+            }
+            .opponent-name {
+              margin-bottom: .5rem;
+              font-size: 100%;
+            }
+            .last-message {
+              font-size: 80%;
+              margin-bottom: 0;
+            }
+          }
+          .chat-count {
+            height: 2rem;
+            width: 2rem;
+            h4 {
+              font-size: 90%;
+            }
+          }
+        }
+      }
+    }
+    .no-content {
+      .no-content-frame {
+        .link-description {
+          h4 {
+            font-size: 100%;
+            line-height: 30px;
+          }
+        }
+        .link-button {
+          width: 95%;
+          font-size: 110%;
+          line-height: 30px;
+        }
+      }
+    }
+  }
+
+  /* show */
   .chat-page {
+    header {
+      .chat-partner {
+        &__name {
+          font-size: 120%;
+        }
+      }
+    }
     .messages-area {
       height: calc(100vh - 10vh - 8vh - 10vh);
     }

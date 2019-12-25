@@ -87,12 +87,16 @@
       backface-visibility: hidden;
       -webkit-backface-visibility: hidden;
       .photographer-name {
+        width: 100%;
         position: absolute;
         bottom: 0;
         margin-bottom: 0;
         color: #fff;
         z-index: 100;
         text-shadow: 0 3px 4px rgba(0,0,0,.5);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
       img {
         position: absolute;

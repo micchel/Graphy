@@ -1,39 +1,80 @@
-<div class="container-fluid px-0">
-    <div class="row">
+<div class="graphy-container container-fluid">
+    <div class="graphy-row row">
     
-        <div class="col-lg-3 pr-lg-0" >
+        <div class="sidebar-container col-lg-3" >
             <%= render 'shared/user-sidebar' %>
         </div>
 
-        <div class="col-lg-9 pl-lg-0 bg-light overflow-auto">
-            <header class="w-100 bg-white text-center py-2 border-bottom-main">
-                <h3 class="text-dark kosugi header-text mb-0"><i class="fas fa-comments pr-1"></i>チャット一覧</h3>
+        <div class="main-content col-lg-9">
+            <header class="main-header border-bottom-main">
+                <h3 class="main-header__text"><i class="fas fa-comments pr-1"></i>チャット一覧</h3>
             </header>
             <div class="container">
-                <div class="mt-3">
-                    <div class="text-center mb-2">
-                        <h4 class="kosugi header-text"><%= @chatrooms.count %>人とマッチングしています</h4>
+                <div class="chat-index">
+                    <div class="chat-index-header">
+                        <h4 class="chat-index-header__text"><%= @chatrooms.count %>人とマッチングしています</h4>
                     </div>
-                    <div class="mt-3 p-0">
-                        <% @chatrooms.each do |chatroom| %>
-                            <%= link_to user_chat_room_path(chatroom), class:"chat-link" do %>
-                                <div class="d-flex align-items-center justify-content-between py-2 px-0 border-bottom">
-                                    <div class="d-flex align-items-center">
-                                        <div class="chat-avator overflow-hidden rounded-circle mr-3">
-                                            <%= image_tag chatroom.photographer.avatar.url, class:"h-100 w-100 img-fluid object-cover"%>
+
+                    <% if current_user.reactions.present? %>
+                        
+                        <% if @chatrooms.present? %>
+                            <div class="chat-index-container">
+                                <% @chatrooms.each do |chatroom| %>
+                                    <%= link_to user_chat_room_path(chatroom), class:"chat-link" do %>
+                                        <div class="chat-content">
+                                            <div class="opponent-info w-75">
+                                                <div class="opponent-avatar">
+                                                    <%= image_tag chatroom.photographer.avatar.url %>
+                                                </div>
+                                                <div class="overflow-hidden w-75">
+                                                    <h5 class="opponent-name text-truncate"><%= chatroom.photographer.name %></h5>
+                                                    <% if chatroom.chat_messages.present? %>
+                                                        <p class="last-message text-truncate"><%= chatroom.chat_messages.last.message %></p>
+                                                    <% else %>
+                                                        <p class="last-message">※まだメッセージがありません</p>
+                                                    <% end %>
+                                                </div>
+                                            </div>
+                                            <% if chatroom.no_user_read_messages %>
+                                                <div class="chat-count">
+                                                    <h4><%= chatroom.no_user_read_messages %></h4>
+                                                </div>
+                                            <% else %>
+                                                <div></div>
+                                            <% end %>
                                         </div>
-                                        <div>
-                                            <h4 class="kosugi chat-name"><%= chatroom.photographer.name %></h4>
-                                        </div>
+                                    <% end %>
+                                <% end %>
+                            </div>
+                        <% else %>
+                            <div class="no-content">
+                                <div class="no-content-frame">
+                                    <div class="link-description">
+                                        <h4>気になるフォトグラファーの詳細から<br/>チャットルームを作成しましょう！</h4>
                                     </div>
-                                    <div class="chat-number d-flex align-items-end bg-danger justify-content-center text-light rounded-circle">
-                                        <h4 class="kosugi inline-block">100</h4>
-                                    </div>
+                                    <%= link_to photographers_path,class:"link-button" do %>
+                                        気になるフォトグラファーの<br/>一覧を見る
+                                    <% end %>
                                 </div>
-                            <% end %>
+                            </div>
                         <% end %>
-                    </div>
-                </div>
+
+                    <% else %>
+
+                        <div class="no-content">
+                            <div class="no-content-frame">
+                                <div class="link-description">
+                                    <h4>気になる作品を選んで<br/>フォトグラファーと<br/>マッチングしましょう！</h4>
+                                </div>
+                                <%= link_to match_users_path,class:"link-button" do %>
+                                    フォトグラファーと<br/>マッチングする
+                                <% end %>
+                            </div>
+                        </div>
+
+                    <% end %>
+
+                </>
             </div>
         </div>
 

@@ -1,17 +1,27 @@
 .photographer-card {
   margin: .5rem 0;
+  display: flex;
+  justify-content: center;
   .photographer-link {
     display: block;
     &:hover {
       text-decoration: none;
-      border: 3px solid $main-color;
     }
     .card {
+      height: 260px;
+      width: 280px;
+      padding: 0;
+      &:hover {
+        border: 3px solid  #daa520;
+      }
       .opponent-portfolio {
         padding-right: 0;
         padding-left: 0;
         border-top-left-radius: 0.25rem;
         border-top-right-radius: 0.25rem;
+        height: 70%;
+        width: 100%;
+        overflow: hidden;
         &__img {
           height: 100%;
           width: 100%;
@@ -20,6 +30,8 @@
       }
       .card-body {
         padding: .5rem 0;
+        height: 30%;
+        width: 100%;
         .opponent-avator {
           height: 3rem;
           width: 3rem;
@@ -34,17 +46,59 @@
         .card-title {
           margin-bottom: .25rem;
           margin-right: .5rem;
+          h5 {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+        }
+        .opponent-area {
+          display: flex;
           white-space: nowrap;
           overflow: hidden;
           text-overflow: ellipsis;
-        }
-        .opponent-area {
+          width: 100%;
           p {
             color: rgba(0, 0, 0, .5);
             display: inline-block;
             margin-bottom: .25rem;
-            overflow: hidden;
-            text-overflow: ellipsis;
+          }
+        }
+      }
+    }
+  }
+}
+
+/*---Media Queries --*/
+@media (max-width: 992px) {
+  
+}
+@media (max-width: 768px) {
+  .photographer-card {
+    .photographer-link {
+      .card {
+        height: 240px;
+        width: 340px;
+      }
+    }
+  }
+}
+@media (max-width: 576px) {
+  .photographer-card {
+    .photographer-link {
+      .card {
+        height: 220px;
+        .card-body {
+          .card-title {
+            h4 {
+              font-size: 120%;
+              margin: 0;
+            }
+          }
+          .opponent-area {
+            p {
+              font-size: 100%;
+            }
           }
         }
       }
