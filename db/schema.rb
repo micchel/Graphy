@@ -13,8 +13,8 @@
 ActiveRecord::Schema.define(version: 2019_12_16_110310) do
 
   create_table "chat_messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "photographer_id", null: false
+    t.bigint "user_id", default: 0, null: false
+    t.bigint "photographer_id", default: 0, null: false
     t.bigint "chatroom_id", null: false
     t.string "message", null: false
     t.datetime "created_at", null: false
@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(version: 2019_12_16_110310) do
   create_table "chatrooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "photographer_id", null: false
+    t.bigint "readed_photographer_message", default: 0, null: false
+    t.bigint "readed_user_message", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["photographer_id"], name: "index_chatrooms_on_photographer_id"
