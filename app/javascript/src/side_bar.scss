@@ -34,6 +34,20 @@
       .nav-item {
         width: 100%;
         background: white;
+        .all-chat-count {
+          height: 2rem;
+          width: 2rem;
+          display: flex;
+          align-items: center;
+          background: red;
+          justify-content: center;
+          color: white;
+          border-radius: 50%;
+          margin: 0 4px 0 0; 
+          h5 {
+            margin-bottom: 0;
+          }
+        }
       }
     }
   }
@@ -56,6 +70,20 @@
     .navbar-toggler {
       margin-right: .5rem;
     }
+    .navbar-collapse {
+      .navbar-nav {
+        .nav-item {
+          .all-chat-count {
+            height: 1.8rem;
+            width: 1.8rem;
+            margin-top: 0.5rem;
+            h5 {
+              font-size: 100%;
+            }
+          }
+        }
+      }
+    }
   }
 }
 
@@ -70,10 +98,23 @@
     .navbar-toggler {
       margin-right: .2rem;
     }
-    .nav-link {
-      padding-left: 1rem;
-      h4 {
-        font-size: 100%;
+    .navbar-collapse {
+      .navbar-nav {
+        .nav-item {
+          .nav-link {
+            padding-left: 1rem;
+            h4 {
+              font-size: 100%;
+            }
+          }
+          .all-chat-count {
+            height: 1.8rem;
+            width: 1.8rem;
+            h5 {
+              font-size: 100%;
+            }
+          }
+        }
       }
     }
   }
