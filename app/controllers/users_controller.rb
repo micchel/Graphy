@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
+  before_action :all_no_user_read_messages
 
   def match
     @portfolios = []
@@ -19,5 +20,20 @@ class UsersController < ApplicationController
 
   def category_params
     params.permit(:category)
+  end
+
+  def all_no_user_read_messages
+    chatrooms = Chatroom.where(user_id: current_user.id)
+    messages_count = 0
+    chatrooms.each do |chatroom|
+      i = chatroom.no_user_read_messages
+      messages_count += i
+    end
+
+    if messages_count > 0
+      @all_no_read_messages = messages_count
+    else
+      @all_no_read_messages = 0
+    end
   end
 end

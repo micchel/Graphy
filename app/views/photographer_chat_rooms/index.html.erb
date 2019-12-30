@@ -25,18 +25,18 @@
                                         <div class="overflow-hidden w-75">
                                             <h5 class="opponent-name text-truncate"><%= chatroom.user.name %></h5>
                                             <% if chatroom.chat_messages.present? %>
-                                                <p class="last-message text-truncate"><%= chatroom.chat_messages.last.message %></p>
+                                                <p class="last-message text-truncate"><%= chatroom.chat_messages.first.message %></p>
                                             <% else %>
                                                 <p class="last-message">※まだメッセージがありません</p>
                                             <% end %>
                                         </div>
                                     </div>
-                                    <% if chatroom.no_photographer_read_messages %>
+                                    <% if chatroom.no_photographer_read_messages > 0 %>
                                         <div class="chat-count">
                                             <h4><%= chatroom.no_photographer_read_messages %></h4>
                                         </div>
                                     <% else %>
-                                        <div></div>
+                                        <div class="d-none"></div>
                                     <% end %>
                                 </div>
                             <% end %>

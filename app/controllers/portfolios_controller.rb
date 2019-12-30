@@ -1,5 +1,6 @@
 class PortfoliosController < ApplicationController
   before_action :authenticate_photographer!
+  before_action :all_no_photographer_read_messages, only: [:new,:edit]
 
   def new
     @portfolio = Portfolio.new
@@ -40,6 +41,21 @@ class PortfoliosController < ApplicationController
 
   def portfolio_params
     params.require(:portfolio).permit(:category_id, :image).merge(photographer_id: current_photographer.id)
+  end
+
+  def all_no_photographer_read_messages
+    chatrooms = Chatroom.where(photographer_id: current_photographer.id)
+    messages_count = 0
+    chatrooms.each do |chatroom|
+      i = chatroom.no_photographer_read_messages
+      messages_count += i
+    end
+
+    if messages_count > 0
+      @all_no_read_messages = messages_count
+    else
+      @all_no_read_messages = 0
+    end
   end
 
 end
