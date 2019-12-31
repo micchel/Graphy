@@ -2,38 +2,73 @@
 </div>
 
 <div class="top-page">
-    <div class="carousel slide" id="slide">
+    <div class="carousel" id="slide">
         <div class="carousel-inner">
+
             <div class="carousel-item active overflow-auto">
                 <%= image_pack_tag 'images/family-top.jpg', class:"top-bg" %>
-                <div class="carousel-caption text-center">
-                    <h1 class="display-1 mb-4 modak">Graphy</h1>
-                    <div class="mb-4">
+                <div class="carousel-caption">
+                    <h1 class="top-logo">Graphy</h1>
+                    <div class="top-description">
                         <h3 class="d-inline-block">Nice matching for </h3>
                         <h3 class="d-inline-block">Photo Life</h3>
                     </div>
-                    <div class="w-50 mx-auto vartical">
-                        <button type="button" class="btn btn-primary btn-lg my-2 mx-1" data-toggle="modal" data-target="#newRegistration">新規登録</button>
-                        <p class="display-5 d-inline-block">or</p>
-                        <button type="button" class="btn btn-primary btn-lg my-2 mx-1" data-toggle="modal" data-target="#newSession">ログイン</button>
-                    </div>
+                    <% if user_signed_in? %>
+                        <div class="signed-in">
+                            <h4 class="signed-in__message">すでにログインしています</h4>
+                            <%= link_to match_users_path, class:"signed-in-link" do %>
+                                <button type="button" class="signed-in-link__button btn-main btn-lg">ユーザーページに移動</button>
+                            <% end %>
+                        </div>
+                    <% elsif photographer_signed_in? %>
+                        <div class="signed-in">
+                            <h4 class="signed-in__message">すでにログインしています</h4>
+                            <%= link_to new_portfolio_path, class:"signed-in-link" do %>
+                                <button type="button" class="signed-in-link__button btn-sub btn-lg">フォトグラファーページに移動</button>
+                            <% end %>
+                        </div>
+                    <% else %>
+                        <div class="no-signed-in vartical">
+                            <button type="button" class="btn btn-primary btn-lg my-2 mx-1" data-toggle="modal" data-target="#newRegistration">新規登録</button>
+                            <p class="display-5 d-inline-block">or</p>
+                            <button type="button" class="btn btn-primary btn-lg my-2 mx-1" data-toggle="modal" data-target="#newSession">ログイン</button>
+                        </div>
+                    <% end %>
                 </div>
             </div>
+
             <div class="carousel-item overflow-auto">
                 <%= image_pack_tag 'images/photographer-top.jpg', class:"top-bg" %>
-                <div class="carousel-caption text-center">
-                    <h1 class="display-1 mb-4 modak">Graphy</h1>
-                    <div class="mb-4">
+                <div class="carousel-caption">
+                    <h1 class="top-logo">Graphy</h1>
+                    <div class="top-description">
                         <h3 class="d-inline-block">Nice matching for </h3>
                         <h3 class="d-inline-block">Photo Life</h3>
                     </div>
-                    <div class="w-50 mx-auto vartical">
-                        <button type="button" class="btn btn-primary btn-lg my-2 mx-1" data-toggle="modal" data-target="#newRegistration">新規登録</button>
-                        <p class="display-5 d-inline-block">or</p>
-                        <button type="button" class="btn btn-primary btn-lg my-2 mx-1" data-toggle="modal" data-target="#newSession">ログイン</button>
-                    </div>
+                    <% if user_signed_in? %>
+                        <div class="signed-in">
+                            <h4 class="signed-in__message">すでにログインしています</h4>
+                            <%= link_to match_users_path, class:"signed-in-link" do %>
+                                <button type="button" class="signed-in-link__button btn-main btn-lg">ユーザーページに移動</button>
+                            <% end %>
+                        </div>
+                    <% elsif photographer_signed_in? %>
+                        <div class="signed-in">
+                            <h4 class="signed-in__message">すでにログインしています</h4>
+                            <%= link_to new_portfolio_path, class:"signed-in-link" do %>
+                                <button type="button" class="signed-in-link__button btn-sub btn-lg">フォトグラファーページに移動</button>
+                            <% end %>
+                        </div>
+                    <% else %>
+                        <div class="no-signed-in vartical">
+                            <button type="button" class="btn btn-primary btn-lg my-2 mx-1" data-toggle="modal" data-target="#newRegistration">新規登録</button>
+                            <p class="display-5 d-inline-block">or</p>
+                            <button type="button" class="btn btn-primary btn-lg my-2 mx-1" data-toggle="modal" data-target="#newSession">ログイン</button>
+                        </div>
+                    <% end %>
                 </div>
             </div>
+
         </div>
         <a class="carousel-control-prev" href="#slide" data-slide="prev">
             <span class="carousel-control-prev-icon"></span>
