@@ -1,69 +1,69 @@
-<div class="container devise-form">
-    <header class="brand-link p-2 text-center position-relative">
-        <%= link_to root_path , class:"brand-link" do %>
-            <h1 class="modak text-sub">Graphy</h1>
+<div class="devise-form container">
+    <header class="devise-form-header">
+        <%= link_to root_path , class:"brand-link text-sub" do %>
+            <h1 class="logo text-sub">Graphy</h1>
         <% end %>
-        <h4 class="text-dark mt-3 font-weight-bold">フォトグラファーアカウントを作成</h4>
+        <h4 class="registration-description">フォトグラファーアカウントを作成</h4>
     </header>
-    <div class="container">
+    <div class="devise-content container">
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "my-3"}) do |f| %>
             <%= render "photographers/shared/error_messages", resource: resource %>
 
-            <p class="d-inline-block mb-0">アバター画像</p>
-            <p class="d-inline-block bg-sub text-white p-1 mb-0 rounded">必須</p>
-            <p class="d-block mb-1">(※ご本人の顔がわかる写真を掲載してください)</p>
-            <div class="d-flex">
-                <%= f.label :avatar, class:"registration-avatar rounded position-relative mt-0 mb-3 bg-sub d-flex align-items-center justify-content-center", style:"height:100px; width:100px;" do %>
-                    <div class="avatar-description rounded d-flex align-items-center justify-content-center position-absolute text-white w-100 h-100">画像をアップロード</div>
+            <p class="item-name">アバター画像</p>
+            <p class="item-required bg-sub">必須</p>
+            <p class="item-note">(※ご本人の顔がわかる写真を掲載してください)</p>
+            <div class="avatar-container">
+                <%= f.label :avatar, id:"avatar_form", class:"registration-avatar bg-sub" do %>
+                    <div class="avatar-description">画像をアップロード</div>
                     <i class="fas fa-user fa-4x text-white"></i>
                     <%= f.file_field :avatar, id: "photographer_avatar", class:"d-none" %>
                 <% end %>
-                <div class="avatar_preview ml-2 my-0 d-none" id="photographer_avatar_preview">
-                    <img id="photographer_thumbnail" class="avatar_content m-1 p-1 border rounded" accept="image/*" src="">
-                    <p class="avatar_text">画像をアップロード済み</p>
+                <div class="avatar_preview d-none" id="photographer_avatar_preview">
+                    <img id="photographer_thumbnail" class="avatar_content border" accept="image/*" src="">
+                    <p class="avatar_text">アップロード済</p>
                 </div>
             </div>
 
             <div class="form-group">
                 <%= f.label :name do %>
-                    <p class="d-inline-block mb-0 d-none text-center">フォトグラファー名</p>
-                    <p class="d-inline-block bg-sub text-white p-1 mb-0 rounded">必須</p>
-                    <p class="d-block mb-1">(※なるべく本名を入力してください)</p>
+                    <p class="item-name">フォトグラファー名</p>
+                    <p class="item-required bg-sub">必須</p>
+                    <p class="item-note">(※なるべく本名を入力してください)</p>
                 <% end %>
                 <%= f.text_field :name, class: "form-control", placeholder: "名前を入力してください" %>
             </div>
 
             <div class="form-group">
                 <%= f.label :email do %>
-                    <p class="d-inline-block mb-0">メールアドレス</p>
-                    <p class="d-inline-block bg-sub text-white p-1 mb-0 rounded">必須</p>
+                    <p class="item-name">メールアドレス</p>
+                    <p class="item-required bg-sub">必須</p>
                 <% end %>
                 <%= f.email_field :email, class: "form-control", placeholder: "メールアドレスを入力してください", autocomplete: "email" %>
             </div>
 
             <div class="form-group">
                 <%= f.label :password do %>
-                    <p class="d-inline-block mb-0">パスワード</p>
-                    <p class="d-inline-block bg-sub text-white p-1 mb-0 rounded">必須</p>
+                    <p class="item-name">パスワード</p>
+                    <p class="item-required bg-sub">必須</p>
                 <% end %>
                 <% if @minimum_password_length %>
-                    <p class="mb-0">(※<%= @minimum_password_length %>文字以上入力してください)</p>
+                    <p class="item-note">(※<%= @minimum_password_length %>文字以上入力してください)</p>
                 <% end %><br />
                 <%= f.password_field :password, class: "form-control", placeholder: "パスワードを入力してください", autocomplete: "off" %>
             </div>
 
             <div class="form-group">
                 <%= f.label :password_confirmation do %>
-                    <p class="d-inline-block mb-0">確認用パスワード</p>
-                    <p class="d-inline-block bg-sub text-white p-1 mb-0 rounded">必須</p>
+                    <p class="item-name">確認用パスワード</p>
+                    <p class="item-required bg-sub">必須</p>
                 <% end %>
                 <%= f.password_field :password_confirmation, class: "form-control", placeholder: "パスワードを再度入力してください", autocomplete: "off" %>
             </div>
 
             <div class="form-group">
                 <%= f.label :main_camera do %>
-                    <p class="d-inline-block mb-0 d-none text-center">メインカメラ</p>
-                    <p class="d-inline-block bg-sub text-white p-1 mb-0 rounded">必須</p>
+                    <p class="item-name">メインカメラ</p>
+                    <p class="item-required bg-sub">必須</p>
                 <% end %>
                 <%= f.text_field :main_camera, class: "form-control", placeholder: "メインカメラの機種名を入力してください" %>
             </div>
@@ -71,8 +71,8 @@
             <div class="form-group">
                 <div>
                     <%= f.label :sex_type do %>
-                        <p class="d-inline-block mb-0">性別</p>
-                        <p class="d-inline-block bg-sub text-white p-1 mb-0 rounded">必須</p>
+                        <p class="item-name">性別</p>
+                        <p class="item-required bg-sub">必須</p>
                     <% end %>
                 </div>
                 <div class="form-check form-check-inline">
@@ -88,19 +88,19 @@
             <div class="form-group">
                 <div>
                     <%= f.label :facebook_url do %>
-                        <p class="d-inline-block mb-0 d-none text-center">facebook URL</p>
+                        <p class="item-name">facebook URL</p>
                     <% end %>
                     <%= f.text_field :facebook_url, class: "form-control", placeholder: "facebookのアカウントURLを入力してください" %>
                 </div>
                 <div>
                     <%= f.label :instagram_url do %>
-                        <p class="d-inline-block mb-0 d-none text-center">instagram URL</p>
+                        <p class="item-name">instagram URL</p>
                     <% end %>
                     <%= f.text_field :instagram_url, class: "form-control", placeholder: "instagramのアカウントURLを入力してください" %>
                 </div>
                 <div>
                     <%= f.label :twitter_url do %>
-                        <p class="d-inline-block mb-0 d-none text-center">twitter URL</p>
+                        <p class="item-name">twitter URL</p>
                     <% end %>
                     <%= f.text_field :twitter_url, class: "form-control", placeholder: "twitterのアカウントURLを入力してください" %>
                 </div>
@@ -108,8 +108,8 @@
 
             <div class="form-group">
                 <%= f.label :price do %>
-                    <p class="d-inline-block mb-0 d-none text-center">依頼料</p>
-                    <p class="d-inline-block bg-sub text-white p-1 mb-0 rounded">必須</p>
+                    <p class="item-name">依頼料</p>
+                    <p class="item-required bg-sub">必須</p>
                 <% end %>
                 <div class="d-flex">
                     <h3 class="mr-1">¥</h3>
@@ -120,15 +120,15 @@
 
             <div class="form-group">
                 <%= f.label :self_introduction do %>
-                    <p class="d-inline-block mb-0">自己紹介文(最大500文字)</p>
+                    <p class="item-name">自己紹介文(最大500文字)</p>
                 <% end %>
                 <%= f.text_area :self_introduction, maxlength: "500", rows: "10", class: "form-control" %>
             </div>
 
             <div class="form-group">
-                <p class="d-inline-block mb-0">活動エリア</p>
-                <p class="d-inline-block bg-sub text-white p-1 mb-0 rounded">必須</p>
-                <p class="d-block mb-1">※撮影可能なエリアを全て選択してください</p>
+                <p class="item-name">活動エリア</p>
+                <p class="item-required bg-sub">必須</p>
+                <p class="item-note">※撮影可能なエリアを全て選択してください</p>
                 <div class="form-check pl-0">
                     <%= f.collection_check_boxes :prefecture_ids, Prefecture.all, :id, :name do |t| %>
                         <div class="d-inline-block mr-1">
@@ -138,8 +138,8 @@
                 </div>
             </div>
 
-            <div class="text-center">
-                <%= f.submit "Graphyをはじめる", class: "btn submit-btn btn-sub text-white font-weight-bold w-50 p-2 rounded" %>
+            <div class="fortm-gruop text-center">
+                <%= f.submit "Graphyをはじめる", class: "btn submit-btn btn-sub" %>
                 <%= render "photographers/shared/links" %>
             </div>
         <% end %>
