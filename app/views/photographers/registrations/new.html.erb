@@ -28,7 +28,7 @@
                 <%= f.label :name do %>
                     <p class="item-name">フォトグラファー名</p>
                     <p class="item-required bg-sub">必須</p>
-                    <p class="item-note">(※なるべく本名を入力してください)</p>
+                    <p class="item-note">(※なるべく本名を入力してください/最大10文字)</p>
                 <% end %>
                 <%= f.text_field :name, class: "form-control", placeholder: "名前を入力してください" %>
             </div>
@@ -48,7 +48,7 @@
                 <% end %>
                 <% if @minimum_password_length %>
                     <p class="item-note">(※<%= @minimum_password_length %>文字以上入力してください)</p>
-                <% end %><br />
+                <% end %>
                 <%= f.password_field :password, class: "form-control", placeholder: "パスワードを入力してください", autocomplete: "off" %>
             </div>
 
@@ -64,6 +64,7 @@
                 <%= f.label :main_camera do %>
                     <p class="item-name">メインカメラ</p>
                     <p class="item-required bg-sub">必須</p>
+                    <p class="item-note">(※最大10文字)</p>
                 <% end %>
                 <%= f.text_field :main_camera, class: "form-control", placeholder: "メインカメラの機種名を入力してください" %>
             </div>
@@ -86,13 +87,13 @@
             </div>
 
             <div class="form-group">
-                <div>
+                <div class="mb-2">
                     <%= f.label :facebook_url do %>
                         <p class="item-name">facebook URL</p>
                     <% end %>
                     <%= f.text_field :facebook_url, class: "form-control", placeholder: "facebookのアカウントURLを入力してください" %>
                 </div>
-                <div>
+                <div class="mb-2">
                     <%= f.label :instagram_url do %>
                         <p class="item-name">instagram URL</p>
                     <% end %>
@@ -110,6 +111,7 @@
                 <%= f.label :price do %>
                     <p class="item-name">依頼料</p>
                     <p class="item-required bg-sub">必須</p>
+                    <p class="item-note">(※10,000円以上で入力してください)</p>
                 <% end %>
                 <div class="d-flex">
                     <h3 class="mr-1">¥</h3>
@@ -120,15 +122,15 @@
 
             <div class="form-group">
                 <%= f.label :self_introduction do %>
-                    <p class="item-name">自己紹介文(最大500文字)</p>
+                    <p class="item-name">自己紹介文(※最大500文字)</p>
                 <% end %>
                 <%= f.text_area :self_introduction, maxlength: "500", rows: "10", class: "form-control" %>
             </div>
 
             <div class="form-group">
                 <p class="item-name">活動エリア</p>
-                <p class="item-required bg-sub">必須</p>
-                <p class="item-note">※撮影可能なエリアを全て選択してください</p>
+                <%# <p class="item-required bg-sub">必須</p> %>
+                <p class="item-note">(※撮影可能なエリアを選択してください/複数選択可)</p>
                 <div class="form-check pl-0">
                     <%= f.collection_check_boxes :prefecture_ids, Prefecture.all, :id, :name do |t| %>
                         <div class="d-inline-block mr-1">

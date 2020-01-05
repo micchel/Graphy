@@ -28,6 +28,7 @@
                 <%= f.label :name do %>
                     <p class="item-name">ユーザー名</p>
                     <p class="item-required bg-main">必須</p>
+                    <p class="item-note">(※最大10文字)</p>
                 <% end %>
                 <%= f.text_field :name, class: "form-control", placeholder: "名前を入力してください" %>
             </div>
@@ -89,7 +90,7 @@
 
             <div class="form-group">
                 <%= f.label :self_introduction do %>
-                    <p class="item-name">自己紹介文(最大500文字)</p>
+                    <p class="item-name">自己紹介文(※最大500文字)</p>
                 <% end %>
                 <%= f.text_area :self_introduction, maxlength: "500", rows: "10", class: "form-control" %>
             </div>
