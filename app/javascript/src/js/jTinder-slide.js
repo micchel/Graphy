@@ -1,9 +1,7 @@
 $(window).on('load',function() {
   if(document.URL.match(/\/users\/search*/)) {
     var portfoliosNum = gon.portfolios.length;
-    console.log(portfoliosNum);
     var currentPortfolioIndex = 0;
-    console.log(currentPortfolioIndex);
 
     var postReaction = function (photographer_id, reaction) {
       $.ajaxSetup({
@@ -34,19 +32,15 @@ $(window).on('load',function() {
 
     $("#tinderslide").jTinder({
       onDislike: function (item) {
-        console.log("Dislike")
         currentPortfolioIndex++;
         checkPortfolioNum();
         var photographer_id = item[0].dataset.photographer_id
         postReaction(photographer_id, 'dislike')
       },
       onLike: function (item) {
-        console.log("Like")
         currentPortfolioIndex++;
-        console.log(currentPortfolioIndex);
         checkPortfolioNum();
         var photographer_id = item[0].dataset.photographer_id
-        console.log(photographer_id);
         postReaction(photographer_id, 'like')
       },
       animationRevertSpeed: 200,

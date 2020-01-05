@@ -13,6 +13,7 @@
                     <h4 class="kosugi header-text"><%= @category.name %>用の写真を変更します</h4>
                 </div>
                 <%= form_for @portfolio, html: { class: "portfolio-form w-100 h-100", id: "portfolio_edit_submit" } do |f| %>
+                    <%= render 'layouts/error_messages', model: f.object %>
                     <div class="d-flex flex-column align-items-center mb-4">
                         <%= f.label "input_edit", class:"portfolio-edit-label position-relative mt-0 mb-1 bg-gray d-flex align-items-center justify-content-center", id:"portfolio_edit_label" do %>
                             <div class="portfolio-description d-flex align-items-center justify-content-center position-absolute text-white w-100 h-100">画像をアップロード</div>

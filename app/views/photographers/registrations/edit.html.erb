@@ -1,148 +1,151 @@
-<div class="container devise-form">
-    <header class="p-2 text-center position-relative">
-        <%= link_to new_portfolio_path , class:"brand-link" do %>
-            <h1 class="modak text-sub">Graphy</h1>
+<div class="devise-form container">
+    <header class="devise-form-header">
+        <%= link_to new_portfolio_path , class:"brand-link text-sub" do %>
+            <h1 class="logo text-sub">Graphy</h1>
         <% end %>
-        <h4 class="text-dark mt-3 font-weight-bold">フォトグラファー情報を変更</h4>
+        <h4 class="registration-description">フォトグラファー情報を変更</h4>
     </header>
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: "my-3" }) do |f| %>
-        <%= render "photographers/shared/error_messages", resource: resource %>
+    <div class="devise-content container">
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: "my-3" }) do |f| %>
+            <%= render "photographers/shared/error_messages", resource: resource %>
 
-        <p class="d-inline-block mb-0">アバター画像</p>
-        <p class="d-inline-block bg-sub text-white px-1 mb-0 rounded">必須</p>
-        <p class="d-block mb-1">(※ご本人の顔がわかる写真を掲載してください)</p>
-        <div class="d-flex">
-            <%= f.label :avatar, class:"registration-avatar rounded position-relative mt-0 mb-3 bg-sub d-flex align-items-center justify-content-center", style:"height:100px; width:100px;" do %>
-                <div class="avatar-description rounded d-flex align-items-center justify-content-center position-absolute text-white w-100 h-100">画像をアップロード</div>
-                <%= image_tag current_photographer.avatar.url ,class: "h-100 w-100 img-fluid object-cover" %>
-                <%= f.file_field :avatar, id: "photographer_avatar", class:"d-none" %>
-            <% end %>
-            <div class="avatar_preview ml-2 my-0 d-none" id="photographer_avatar_preview">
-                <img id="photographer_thumbnail" class="avatar_content m-1 p-1 border rounded" accept="image/*" src="">
-                <p class="avatar_text">画像をアップロード済み</p>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <%= f.label :name do %>
-                <p class="d-inline-block mb-0 text-center">フォトグラファー名</p>
-                <p class="d-inline-block bg-sub text-white px-1 mb-0 rounded">必須</p>
-                <p class="d-block mb-1">(※なるべく本名を入力してください)</p>
-            <% end %>
-            <%= f.text_field :name, class: "form-control", placeholder: "名前を入力してください" %>
-        </div>
-
-        <div class="form-group">
-            <%= f.label :email do %>
-                <p class="d-inline-block mb-0">メールアドレス</p>
-                <p class="d-inline-block bg-sub text-white px-1 mb-0 rounded">必須</p>
-            <% end %>
-            <%= f.email_field :email, class: "form-control", placeholder: "メールアドレスを入力してください", autocomplete: "email" %>
-        </div>
-
-        <div class="form-group">
-            <%= f.label :password do %>
-                <p class="d-inline-block mb-0">パスワード</p>
-                <p class="d-inline-block bg-sub text-white px-1 mb-0 rounded">必須</p>
-            <% end %>
-            <% if @minimum_password_length %>
-                <p class="kosugi mb-0">(※<%= @minimum_password_length %>文字以上入力してください)</p>
-            <% end %><br />
-            <%= f.password_field :password, class: "form-control", placeholder: "パスワードを入力してください", autocomplete: "off" %>
-        </div>
-
-        <div class="form-group">
-            <%= f.label :password_confirmation do %>
-                <p class="d-inline-block mb-0">確認用パスワード</p>
-                <p class="d-inline-block bg-sub text-white px-1 mb-0 rounded">必須</p>
-            <% end %>
-            <%= f.password_field :password_confirmation, class: "form-control", placeholder: "パスワードを再度入力してください", autocomplete: "off" %>
-        </div>
-
-        <div class="form-group">
-                <%= f.label :main_camera do %>
-                    <p class="d-inline-block kosugi mb-0 text-center">メインカメラ</p>
-                    <p class="d-inline-block bg-sub text-white px-1 mb-0 rounded">必須</p>
+            <p class="item-name">アバター画像</p>
+            <p class="item-required bg-sub">必須</p>
+            <p class="item-note">(※ご本人の顔がわかる写真を掲載してください)</p>
+            <div class="avatar-container">
+                <%= f.label :avatar, id:"avatar_form" ,class:"registration-avatar bg-sub" do %>
+                    <div class="avatar-description">画像をアップロード</div>
+                    <%= image_tag current_photographer.avatar.url ,class: "h-100 w-100 object-cover rounded" %>
+                    <%= f.file_field :avatar, id: "photographer_avatar", class:"d-none" %>
                 <% end %>
-                <%= f.text_field :main_camera, class: "form-control", placeholder: "メインカメラの機種名を入力してください" %>
+                <div class="avatar_preview d-none" id="photographer_avatar_preview">
+                    <img id="photographer_thumbnail" class="avatar_content border" accept="image/*" src="">
+                    <p class="avatar_text">アップロード済</p>
+                </div>
             </div>
 
-        <div class="form-group">
-            <div>
-                <%= f.label :sex_type do %>
-                    <p class="d-inline-block mb-0">性別</p>
-                    <p class="d-inline-block bg-sub text-white px-1 mb-0 rounded">必須</p>
+            <div class="form-group">
+                <%= f.label :name do %>
+                    <p class="item-name">フォトグラファー名</p>
+                    <p class="item-required bg-sub">必須</p>
+                    <p class="item-note">(※なるべく本名を入力してください/最大10文字)</p>
                 <% end %>
+                <%= f.text_field :name, class: "form-control", placeholder: "名前を入力してください" %>
             </div>
-            <div class="form-check form-check-inline">
-                <%= f.radio_button :sex_type, :male, class: "form-check-input", id: "inlineRadio1" %>
-                <%= f.label :inlineRadio1, "男性", class:"form-check-label" %>
-            </div>
-            <div class="form-check form-check-inline">
-                <%= f.radio_button :sex_type, :female, class: "form-check-input", id: "inlineRadio2" %>
-                <%= f.label :inlineRadio2, "女性", class:"form-check-label" %>
-            </div>
-        </div>
 
-        <div class="form-group">
-            <div>
-                <%= f.label :facebook_url do %>
-                    <p class="d-inline-block mb-0 text-center">facebook URL</p>
+            <div class="form-group">
+                <%= f.label :email do %>
+                    <p class="item-name">メールアドレス</p>
+                    <p class="item-required bg-sub">必須</p>
                 <% end %>
-                <%= f.text_field :facebook_url, class: "form-control", placeholder: "facebookのアカウントURLを入力してください" %>
+                <%= f.email_field :email, class: "form-control", placeholder: "メールアドレスを入力してください", autocomplete: "email" %>
             </div>
-            <div>
-                <%= f.label :instagram_url do %>
-                    <p class="d-inline-block mb-0 text-center">instagram URL</p>
+
+            <div class="form-group">
+                <%= f.label :password do %>
+                    <p class="item-name">パスワード</p>
+                    <p class="item-required bg-sub">必須</p>
                 <% end %>
-                <%= f.text_field :instagram_url, class: "form-control", placeholder: "instagramのアカウントURLを入力してください" %>
-            </div>
-            <div>
-                <%= f.label :twitter_url do %>
-                    <p class="d-inline-block mb-0 text-center">twitter URL</p>
+                <% if @minimum_password_length %>
+                    <p class="item-note">(※<%= @minimum_password_length %>文字以上入力してください)</p>
                 <% end %>
-                <%= f.text_field :twitter_url, class: "form-control", placeholder: "twitterのアカウントURLを入力してください" %>
+                <%= f.password_field :password, class: "form-control", placeholder: "パスワードを入力してください", autocomplete: "off" %>
             </div>
-        </div>
 
-        <div class="form-group">
-            <%= f.label :price do %>
-                <p class="d-inline-block mb-0 text-center">依頼料</p>
-                <p class="d-inline-block bg-sub text-white px-1 mb-0 rounded">必須</p>
-            <% end %>
-            <div class="d-flex">
-                <h3 class="mr-1">¥</h3>
-                <%= f.text_field :price, class: "form-control", placeholder: "例）15000" %>
-            </div>
-            
-        </div>
-
-        <div class="form-group">
-            <%= f.label :self_introduction do %>
-                <p class="d-inline-block mb-0">自己紹介文(最大500文字)</p>
-            <% end %>
-            <%= f.text_area :self_introduction, maxlength: "500", rows: "10", class: "form-control" %>
-        </div>
-
-        <div class="form-group">
-            <p class="d-inline-block mb-0">活動エリア</p>
-            <p class="d-inline-block bg-sub text-white px-1 mb-0 rounded">必須</p>
-            <p class="d-block mb-1">※撮影可能なエリアを全て選択してください</p>
-            <div class="form-check pl-0">
-                <%= f.collection_check_boxes :prefecture_ids, Prefecture.all, :id, :name do |t| %>
-                    <div class="d-inline-block mr-1">
-                        <%= t.label { t.check_box + t.text } %>
-                    </div>
+            <div class="form-group">
+                <%= f.label :password_confirmation do %>
+                    <p class="item-name">確認用パスワード</p>
+                    <p class="item-required bg-sub">必須</p>
                 <% end %>
+                <%= f.password_field :password_confirmation, class: "form-control", placeholder: "パスワードを再度入力してください", autocomplete: "off" %>
             </div>
-        </div>
 
-        <div class="text-center">
-            <%= f.submit "変更する", class: "btn submit-btn btn-sub text-white font-weight-bold w-50 p-2 rounded" %>
-        </div>
-    <% end %>
+            <div class="form-group">
+                    <%= f.label :main_camera do %>
+                        <p class="item-name">メインカメラ</p>
+                        <p class="item-required bg-sub">必須</p>
+                    <% end %>
+                    <%= f.text_field :main_camera, class: "form-control", placeholder: "メインカメラの機種名を入力してください" %>
+                </div>
 
-    <div class="text-center mt-5">
+            <div class="form-group">
+                <div>
+                    <%= f.label :sex_type do %>
+                        <p class="item-name">性別</p>
+                        <p class="item-required bg-sub">必須</p>
+                    <% end %>
+                </div>
+                <div class="form-check form-check-inline">
+                    <%= f.radio_button :sex_type, :male, class: "form-check-input", id: "inlineRadio1" %>
+                    <%= f.label :inlineRadio1, "男性", class:"form-check-label" %>
+                </div>
+                <div class="form-check form-check-inline">
+                    <%= f.radio_button :sex_type, :female, class: "form-check-input", id: "inlineRadio2" %>
+                    <%= f.label :inlineRadio2, "女性", class:"form-check-label" %>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="mb-2">
+                    <%= f.label :facebook_url do %>
+                        <p class="item-name">facebook URL</p>
+                    <% end %>
+                    <%= f.text_field :facebook_url, class: "form-control", placeholder: "facebookのアカウントURLを入力してください" %>
+                </div>
+                <div class="mb-2">
+                    <%= f.label :instagram_url do %>
+                        <p class="item-name">instagram URL</p>
+                    <% end %>
+                    <%= f.text_field :instagram_url, class: "form-control", placeholder: "instagramのアカウントURLを入力してください" %>
+                </div>
+                <div class="mb-2">
+                    <%= f.label :twitter_url do %>
+                        <p class="item-name">twitter URL</p>
+                    <% end %>
+                    <%= f.text_field :twitter_url, class: "form-control", placeholder: "twitterのアカウントURLを入力してください" %>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <%= f.label :price do %>
+                    <p class="item-name">依頼料</p>
+                    <p class="item-required bg-sub">必須</p>
+                    <p class="item-note">(※10,000円以上で入力してください)</p>
+                <% end %>
+                <div class="d-flex">
+                    <h3 class="mr-1">¥</h3>
+                    <%= f.text_field :price, class: "form-control", placeholder: "例）15000" %>
+                </div>
+                
+            </div>
+
+            <div class="form-group">
+                <%= f.label :self_introduction do %>
+                    <p class="item-name">自己紹介文(最大500文字)</p>
+                <% end %>
+                <%= f.text_area :self_introduction, maxlength: "500", rows: "10", class: "form-control" %>
+            </div>
+
+            <div class="form-group">
+                <p class="item-name">活動エリア</p>
+                <%# <p class="item-required bg-sub">必須</p> %>
+                <p class="d-block mb-1">※撮影可能なエリアを全て選択してください</p>
+                <div class="form-check pl-0">
+                    <%= f.collection_check_boxes :prefecture_ids, Prefecture.all, :id, :name do |t| %>
+                        <div class="d-inline-block mr-1">
+                            <%= t.label { t.check_box + t.text } %>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+
+            <div class="form-group text-center">
+                <%= f.submit "変更する", class: "btn submit-btn btn-sub" %>
+            </div>
+        <% end %>
+    </div>
+
+    <div class="text-center my-5">
         <h4 class="text-dark">フォトグラファーアカウントを削除する</h4>
         <%= button_to "削除", registration_path(resource_name), data: { confirm: "本当にアカウントを削除しますか?" }, method: :delete, class:"btn text-white bg-danger" %>
     </div>

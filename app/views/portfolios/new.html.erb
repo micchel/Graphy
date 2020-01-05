@@ -69,6 +69,7 @@
                                         </div>
                                         <div class="modal-body">
                                             <%= form_for @portfolio, html: { class: "field portfolio-form w-100 h-100",id: "portfolio_submit_#{ index }", data:{id:index} } do |f| %>
+                                                <%= render 'layouts/error_messages', model: f.object %>
                                                 <div class="d-flex flex-column align-items-center mb-4">
                                                     <%= f.label "input_#{index}", class:"portfolio-label position-relative mt-0 mb-1 bg-sub d-flex align-items-center justify-content-center", data:{id:index} do %>
                                                         <div class="portfolio-description d-flex align-items-center justify-content-center position-absolute text-white w-100 h-100">画像をアップロード</div>

@@ -10,7 +10,6 @@ $(function() {
                             <p class="mb-0 text-light">削除</p>
                       </button>`);
     portfolioImg.append(deleteBtn);
-    console.log("BUILD_HTML");
     return portfolioImg;
   }
 
@@ -20,15 +19,12 @@ $(function() {
                               <i class="fas fa-camera fa-5x text-white"></i>
                               <input type="file" name="portfolio[portfolio_url]" class="portfolio-input d-none" id="portfolio_input_${ number }" data-id="${ number }">
                           </label>`);
-    console.log("BUILD_FORM");
     return portfolioForm;
   }
 
   $(document).on("change", '#portfolio_input_1,#portfolio_input_2,#portfolio_input_3,#portfolio_input_4,#portfolio_input_5,#portfolio_input_6', function(e) {
     var inputId = $(this).data('id');
-    console.log(inputId);
     newPortfolioFile = $(this).prop("files")[0];
-    console.log(newPortfolioFile);
     var reader = new FileReader;
     
     if (e.target.files.length) {
@@ -46,17 +42,13 @@ $(function() {
 
   $(document).on("click", '.delete-image, .portfolio-close', function() {
     var deleteId = $(this).data('id');
-    console.log(deleteId);
-    console.log(newPortfolioFile);
     var portfolioBtn = $(`div[data-id="${deleteId}"].portfolio-submit`);
     if (newPortfolioFile != "") {
       var portfolioLabel = replaceImg(deleteId);
       var replaceTarget = $(`div[data-id="${deleteId}"].portfolio-frame`);
       $(replaceTarget).replaceWith(portfolioLabel);
-      console.log("REPLACE_IMG_TO_FORM")
       portfolioBtn.addClass("d-none");
       newPortfolioFile = "";
-      console.log(newPortfolioFile);
     }
   });
 
@@ -64,13 +56,11 @@ $(function() {
     e.preventDefault();
     var submitId = $(this).data('id');
     var formData = new FormData($(`form[data-id="${submitId}"].portfolio-form`).get(0));
-    console.log(newPortfolioFile);
     if (newPortfolioFile == "") {
       formData.append("portfolio[image]", "");
     } else {
       formData.append("portfolio[image]", newPortfolioFile);
       for (let value of formData.entries()) { 
-        console.log(value); 
       }
     };
     $.ajax({

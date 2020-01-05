@@ -8,12 +8,15 @@ class UsersController < ApplicationController
   end
 
   def search
-    searched_portfolios = Portfolio.where(category_id: category_params[:category]).includes(:photographer)
-    @portfolios = searched_portfolios.order("RAND()").select {
-      |portfolio| portfolio.not_matched?(current_user)
-    }
-    gon.portfolios = @portfolios
-    render :match
+    if searched_portfolios = Portfolio.where(category_id: category_params[:category]).includes(:photographer)
+      @portfolios = searched_portfolios.order("RAND()").select {
+        |portfolio| portfolio.not_matched?(current_user)
+      }
+      gon.portfolios = @portfolios
+      render :match
+    else
+      render :match, alert: "ご指定のカテゴリーには作品がまだありません"
+    end
   end
 
   private
