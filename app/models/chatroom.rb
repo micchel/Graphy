@@ -21,4 +21,8 @@ class Chatroom < ApplicationRecord
     end
   end
 
+  validates :user_id,                     presence: true
+  validates :photographer_id,             presence: true
+  validates :readed_photographer_message, presence: true
+  validates :readed_user_message,         presence: true
 end

@@ -17,4 +17,11 @@ class User < ApplicationRecord
     self.chatrooms.find_by(user_id: self.id, photographer_id: photographer.id).present?
   end
 
+  validates :name,              presence: true
+  validates :name,              length: { maximum: 10, too_long: "最大%{count}文字まで使えます" }
+  validates :sex_type,          presence: true
+  validates :prefecture_id,     presence: true
+  validates :self_introduction, length: { maximum: 500, too_long: "最大%{count}文字まで使えます" }
+  validates :avatar,            presence: true
+
 end
