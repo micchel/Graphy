@@ -26,8 +26,8 @@ class UserChatRoomsController < ApplicationController
     chatroom = Chatroom.where(user_id: current_user.id, photographer_id: chatroom_params[:photographer_id]).first
     if chatroom.blank?
       chatroom = Chatroom.create(chatroom_params)
+      redirect_to action: :show, id: chatroom.id
     end
-    redirect_to action: :show, id: chatroom.id
   end
 
   private
