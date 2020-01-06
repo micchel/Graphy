@@ -10,7 +10,7 @@ class User < ApplicationRecord
   has_many   :chatrooms, dependent: :destroy
   has_many   :chat_messages, dependent: :destroy
 
-  enum sex: { male:1, female:2 }
+  enum sex_type: { male:0, female:1 }
   mount_uploader :avatar, ImageUploader
 
   def have_chatroom?(photographer)
