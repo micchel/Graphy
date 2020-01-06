@@ -13,7 +13,7 @@
         border-radius: 50%;
       }
     }
-    .photographer-info {
+    .photographer-info,.user-info {
       .photographer-name {
         white-space: nowrap;
         overflow: hidden;
@@ -113,10 +113,22 @@
       }
     }
   }
+
   .photographer-description {
     line-height: 1.5;
     padding: 1rem 1rem;
     background: white;
+    &__text {
+      white-space: pre-wrap;
+      font-weight: 300;
+    }
+  }
+
+  .user-description {
+    line-height: 1.5;
+    padding: 1rem 1rem;
+    background: white;
+    height: 250px;
     &__text {
       white-space: pre-wrap;
       font-weight: 300;
@@ -210,5 +222,8 @@
         font-size: 170%;
       }
     }
+  }
+  #user-detail-label {
+    font-size: 120%;
   }
 }

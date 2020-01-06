@@ -5,15 +5,17 @@
         </div>
         <div class="main-content col-lg-9 bg-light">
             <div class="chat-page">
+
                 <header>
                     <%= link_to "", photographer_chat_rooms_path, class: "link-matching" %>
                     <div class="chat-partner">
-                        <div class="chat-partner__img">
+                        <div class="chat-partner__img" data-toggle="modal" data-target="#user_detail">
                             <%= image_tag @chatroom.user.avatar.url %>
                         </div>
                         <h5 class="chat-partner__name"><%= @chatroom.user.name %></h5>
                     </div>
                 </header>
+
                 <div class="messages-area messages">
                     <%= render partial: "shared/chat_message", collection: @chat_messages, as: "chat_message" %>
                 </div>
@@ -22,6 +24,54 @@
                     <textarea class="message-input-form_input col-10" id="message_input" rows="42" cols="12" placeholder="メッセージを入力..."></textarea>
                     <button type="button" class="message-input-form_submit col-2" id="message_submit"><i class="fas fa-arrow-alt-circle-up"></i></button>
                 </div>
+
+                <div class="modal fade" id="user_detail" tabindex="-1" role="dialog" aria-labelledby="user-detail-label" aria-hidden="true">
+                    <div class="modal-dialog mx-auto" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h3 class="modal-title" id="user-detail-label"><%= @chatroom.user.name %>さんの詳細です</h3>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+
+                                <div class="detail-container container mt-0">
+                                    <div class="info-row row">
+                                        <div class="col-sm-12 col-md-6 mb-2">
+                                            <div class="detail-avatar">
+                                                <%= image_tag @chatroom.user.avatar.url, class:"img-thumbnail" %>
+                                            </div>
+                                        </div>
+                                        <div class="user-info col-sm-12 col-md-6">
+                                            <dl class="info-container mb-1">
+                                                <dt class="detail-text detail-title">居住エリア</dt>
+                                                <dd class="detail-text detail-info"><%= @chatroom.user.prefecture.name %></dd>
+                                            </dl>
+                                            
+                                            <dl class="info-container mb-1">
+                                                <dt class="detail-text detail-title">性別</dt>
+                                                <dd class="detail-text detail-info"><%= @chatroom.user.sex_type_i18n %></dd>
+                                            </dl>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="detail-container container-fluid">
+                                    <h5 class="font-weight-bold">自己紹介</h5>
+                                    <div class="user-description border overflow-auto">
+                                        <p class="user-description__text"><%= @chatroom.user.self_introduction %></p>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
