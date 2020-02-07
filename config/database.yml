@@ -50,5 +50,7 @@ test:
 production:
   <<: *default
   database: Graphy_production
-  username: Graphy
-  password: <%= ENV['GRAPHY_DATABASE_PASSWORD'] %>
+  username: root
+  password: 
+  # password: <%= ENV['GRAPHY_DATABASE_PASSWORD'] %>
+  socket:   /var/lib/mysql/mysql.sock
