@@ -1,9 +1,10 @@
+$app_path = "/var/www/Graphy"
 $worker  = 2
 $timeout = 30
 $app_dir = "/var/www/Graphy/current"
-$listen  = File.expand_path 'tmp/sockets/.unicorn.sock', $app_dir
-$pid     = File.expand_path 'tmp/pids/unicorn.pid', $app_dir
-$std_log = File.expand_path 'log/unicorn.log', $app_dir
+$listen  = "#{$app_path}/shared/tmp/sockets/.unicorn.sock"
+$pid     = "#{$app_path}/shared/tmp/pids/unicorn.pid"
+$std_log = "#{$app_path}/shared/log/unicorn.log"
 
 worker_processes  $worker
 working_directory $app_dir
