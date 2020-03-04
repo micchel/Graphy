@@ -45,9 +45,16 @@ set :rbenv_ruby, '2.5.1'
 
 set :log_level, :debug
 
-after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do
+  desc 'Restart application'
   task :restart do
     invoke 'unicorn:restart'
+  end
+
+  after :publishing, :restart
+
+  after :restart, :clear_cache do
+    on roles(:web), in: :groups, limit: 3, wait: 10 do
+    end
   end
 end
