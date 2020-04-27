@@ -43,7 +43,7 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano-rbenv'
-  # gem 'capistrano3-unicorn'
+  gem 'capistrano3-unicorn'
   gem 'ed25519'
   gem 'bcrypt_pbkdf'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -87,3 +87,4 @@ gem 'pry-byebug'
 gem 'rails-i18n', '~> 5.1'
 gem 'seed-fu', '~> 2.3'
 gem 'webpacker', '~> 3.5'
+gem 'therubyracer',  platforms: :ruby

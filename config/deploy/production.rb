@@ -8,7 +8,8 @@
 # server "db.example.com", user: "deploy", roles: %w{db}
 server '18.177.247.95', user: 'micchel', roles: %w{app db web} 
 
-
+set :rails_env, "production"
+set :unicorn_rack_env, "production"
 
 # role-based syntax
 # ==================
@@ -47,7 +48,12 @@ server '18.177.247.95', user: 'micchel', roles: %w{app db web}
 #    forward_agent: false,
 #    auth_methods: %w(password)
 #  }
-set :ssh_options, keys: '~/.ssh/graphy_key_rsa' 
+set :ssh_options, {
+  keys: %w(~/.ssh/graphy_key_rsa), #秘密キーのpathを記載
+  forward_agent: true,
+  auth_methods: %w(publickey),
+  port: 22
+}
 #
 # The server-based syntax can be used to override options:
 # ------------------------------------
